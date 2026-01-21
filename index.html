@@ -744,7 +744,7 @@
             transform: translateX(0);
         }
         
-        /* Contact Section */
+        /* Contact Section - PERUBAHAN: select dan option warna hitam */
         .contact {
             background-color: var(--dark);
             color: white;
@@ -823,6 +823,17 @@
             color: white;
             font-family: 'Poppins', sans-serif;
             transition: var(--transition);
+        }
+        
+        /* PERUBAHAN: Select dan option warna hitam */
+        .contact-form select {
+            color: black !important;
+            background-color: white !important;
+        }
+        
+        .contact-form select option {
+            color: black;
+            background-color: white;
         }
         
         .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
@@ -1332,7 +1343,7 @@
                 <p>Pilih paket sesuai kebutuhan dengan harga di bawah 2 juta</p>
             </div>
             
-            <!-- Category Tabs -->
+            <!-- Category Tabs - DIHAPUS ecommerce -->
             <div class="category-tabs">
                 <button class="category-tab active" data-category="all">
                     <i class="fas fa-th"></i> Semua Paket
@@ -1342,9 +1353,6 @@
                 </button>
                 <button class="category-tab" data-category="app">
                     <i class="fas fa-mobile-alt"></i> Aplikasi (1.5JT-1.9JT)
-                </button>
-                <button class="category-tab" data-category="ecommerce">
-                    <i class="fas fa-shopping-cart"></i> E-Commerce
                 </button>
             </div>
             
@@ -1396,11 +1404,11 @@
                     <div class="service-icon">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
-                    <h3 class="service-title">E-Commerce Solutions</h3>
-                    <p class="service-description">Membangun platform e-commerce yang powerful dan user-friendly untuk meningkatkan penjualan online.</p>
+                    <h3 class="service-title">Website Toko Online</h3>
+                    <p class="service-description">Membangun platform toko online yang powerful dan user-friendly untuk meningkatkan penjualan online.</p>
                     <ul class="service-list">
-                        <li><i class="fas fa-check"></i> Toko Online Custom</li>
-                        <li><i class="fas fa-check"></i> Marketplace Development</li>
+                        <li><i class="fas fa-check"></i> Katalog produk lengkap</li>
+                        <li><i class="fas fa-check"></i> Keranjang belanja & checkout</li>
                         <li><i class="fas fa-check"></i> Integrasi Payment Gateway</li>
                         <li><i class="fas fa-check"></i> Sistem manajemen stok</li>
                     </ul>
@@ -1409,7 +1417,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section - DIUBAH email dan alamat -->
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-title">
@@ -1434,14 +1442,14 @@
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h4>Email</h4>
-                                <p>info@zrsdigital.com</p>
+                                <p>pariono.jmb@gmail.com</p>
                             </div>
                         </li>
                         <li>
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
                                 <h4>Lokasi</h4>
-                                <p>Jl. Teknologi No. 123, Kota Digital</p>
+                                <p>Desa baru rt 04 rw 05 kel. muara tebo, kec. tebo tengah, kabupaten tebo</p>
                             </div>
                         </li>
                     </ul>
@@ -1471,7 +1479,7 @@
                                 <option value="">Pilih Layanan</option>
                                 <option value="website">Website</option>
                                 <option value="app">Aplikasi</option>
-                                <option value="ecommerce">E-Commerce</option>
+                                <option value="website-toko">Website Toko Online</option>
                                 <option value="custom">Custom Development</option>
                                 <option value="consultation">Konsultasi</option>
                             </select>
@@ -1491,7 +1499,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer - DIUBAH email, alamat, dan daftar paket -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -1510,6 +1518,7 @@
                     <h3>Paket Website</h3>
                     <a href="#products">Website Sekolah (Rp 850K)</a>
                     <a href="#products">Website Wisata (Rp 1.2JT)</a>
+                    <a href="#products">Website Toko Online (Rp 1.4JT)</a>
                     <a href="#products">Website Organisasi (Rp 750K)</a>
                     <a href="#products">Website Pemerintahan (Rp 1.2JT)</a>
                     <a href="#products">Website Berita (Rp 950K)</a>
@@ -1517,18 +1526,19 @@
                 
                 <div class="footer-column">
                     <h3>Paket Aplikasi</h3>
+                    <a href="#products">Aplikasi SPP (Rp 1.6JT)</a>
                     <a href="#products">Aplikasi Kasir (Rp 1.8JT)</a>
                     <a href="#products">Aplikasi Inventaris (Rp 1.5JT)</a>
                     <a href="#products">Aplikasi Perpustakaan (Rp 1.7JT)</a>
-                    <a href="#products">Aplikasi SPP (Rp 1.6JT)</a>
                     <a href="#products">Aplikasi Apotik (Rp 1.9JT)</a>
+                    <a href="#products">Aplikasi Koperasi (Rp 1.75JT)</a>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Kontak</h3>
                     <p><i class="fas fa-phone-alt"></i> 0852-1021-2740</p>
-                    <p><i class="fas fa-envelope"></i> info@zrsdigital.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Jl. Teknologi No. 123, Kota Digital</p>
+                    <p><i class="fas fa-envelope"></i> pariono.jmb@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Desa baru rt 04 rw 05 kel. muara tebo, kec. tebo tengah, kabupaten tebo</p>
                     <a href="https://wa.me/6285210212740" target="_blank" class="whatsapp-contact" style="display: inline-flex; margin-top: 15px;">
                         <i class="fab fa-whatsapp"></i> Chat via WhatsApp
                     </a>
@@ -1602,7 +1612,7 @@
     </div>
 
     <script>
-        // Data Produk dengan harga di bawah 2 juta (SISTEM GAMBAR DIPERBAIKI)
+        // Data Produk dengan harga di bawah 2 juta - ECOMMERCE DIHAPUS, diganti Website Toko Online di kategori website
         const products = {
             "website": {
                 title: "Paket Website (Rp 500.000 - Rp 1.500.000)",
@@ -1642,6 +1652,23 @@
                             "Form pemesanan paket wisata",
                             "Integrasi media sosial",
                             "Optimasi untuk gambar cepat"
+                        ]
+                    },
+                    {
+                        id: 13,
+                        name: "Website Toko Online",
+                        description: "Website toko online lengkap dengan katalog produk, keranjang belanja, checkout, dan sistem pembayaran online.",
+                        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                        price: 1400000,
+                        originalPrice: 1900000,
+                        category: "website",
+                        badge: "Toko Online",
+                        features: [
+                            "Katalog produk dengan kategori",
+                            "Keranjang belanja & checkout",
+                            "Pembayaran via transfer/QRIS",
+                            "Manajemen pesanan & stok",
+                            "Laporan penjualan lengkap"
                         ]
                     },
                     {
@@ -1822,47 +1849,8 @@
                         ]
                     }
                 ]
-            },
-            "ecommerce": {
-                title: "Paket E-Commerce & Toko Online",
-                description: "Website toko online dengan sistem pembayaran dan manajemen produk",
-                items: [
-                    {
-                        id: 13,
-                        name: "Toko Online UKM",
-                        description: "Website toko online untuk UKM dengan katalog produk, keranjang belanja, checkout, dan pembayaran online.",
-                        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                        price: 1400000,
-                        originalPrice: 1900000,
-                        category: "ecommerce",
-                        badge: "UKM",
-                        features: [
-                            "Katalog produk dengan kategori",
-                            "Keranjang belanja & checkout",
-                            "Pembayaran via transfer/QRIS",
-                            "Manajemen pesanan",
-                            "Laporan penjualan"
-                        ]
-                    },
-                    {
-                        id: 14,
-                        name: "Marketplace Mini",
-                        description: "Platform marketplace dengan multi-vendor untuk menjual produk dari berbagai penjual dengan sistem komisi.",
-                        image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                        price: 1950000,
-                        originalPrice: 2800000,
-                        category: "ecommerce",
-                        badge: "Marketplace",
-                        features: [
-                            "Multi-vendor & produk",
-                            "Sistem komisi otomatis",
-                            "Review & rating produk",
-                            "Dashboard untuk penjual",
-                            "Admin panel lengkap"
-                        ]
-                    }
-                ]
             }
+            // ECOMMERCE DIHAPUS - digabung ke website
         };
 
         // DOM Elements
@@ -2084,7 +2072,6 @@
             switch(category) {
                 case 'website': return 'globe';
                 case 'app': return 'mobile-alt';
-                case 'ecommerce': return 'shopping-cart';
                 default: return 'cube';
             }
         }
