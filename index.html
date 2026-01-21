@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV. ZRS Digital - Paket Website & Aplikasi Profesional</title>
+    <title>CV. ZRS Digital - Paket Website & Aplikasi Murah</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -898,7 +898,7 @@
             font-size: 0.9rem;
         }
         
-        /* Order Modal */
+        /* Order Modal - PERBAIKAN WARNA */
         .order-modal {
             display: none;
             position: fixed;
@@ -985,6 +985,7 @@
         
         .order-summary-label {
             color: var(--gray);
+            font-weight: 500;
         }
         
         .order-summary-value {
@@ -1029,6 +1030,12 @@
             font-family: 'Poppins', sans-serif;
             transition: var(--transition);
             font-size: 0.95rem;
+            color: var(--dark);
+            background-color: white;
+        }
+        
+        .order-form input::placeholder, .order-form textarea::placeholder {
+            color: #94a3b8;
         }
         
         .order-form input:focus, .order-form select:focus, .order-form textarea:focus {
@@ -1244,6 +1251,25 @@
         .category-custom {
             color: #f59e0b;
         }
+        
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
     </style>
 </head>
 <body>
@@ -1291,9 +1317,9 @@
     <section class="hero" id="home">
         <div class="container hero-content">
             <div class="hero-text">
-                <span class="badge animate__animated animate__pulse animate__infinite">🔥 Promo Khusus Bulan Ini</span>
-                <h1 class="animate__animated animate__fadeInUp">Buat Website & Aplikasi <span>Harga Terjangkau</span></h1>
-                <p class="animate__animated animate__fadeInUp animate__delay-1s">CV. ZRS Digital menghadirkan solusi website dan aplikasi berkualitas dengan harga kompetitif. Mulai dari <strong>Rp 500.000</strong> untuk website hingga <strong>Rp 3.000.000</strong> untuk aplikasi custom.</p>
+                <span class="badge animate__animated animate__pulse animate__infinite">🔥 PROMO TERBATAS</span>
+                <h1 class="animate__animated animate__fadeInUp">Website & Aplikasi <span>Murah & Berkualitas</span></h1>
+                <p class="animate__animated animate__fadeInUp animate__delay-1s">CV. ZRS Digital menghadirkan solusi website dan aplikasi profesional dengan harga terjangkau. Semua paket di bawah <strong>Rp 2 Juta</strong>!</p>
                 
                 <div class="hero-cta">
                     <a href="#products" class="btn-primary animate__animated animate__fadeInUp animate__delay-2s">
@@ -1306,11 +1332,11 @@
                 
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <span class="stat-number">250+</span>
+                        <span class="stat-number">300+</span>
                         <span class="stat-text">Proyek Selesai</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">96%</span>
+                        <span class="stat-number">97%</span>
                         <span class="stat-text">Kepuasan Klien</span>
                     </div>
                     <div class="stat-item">
@@ -1331,25 +1357,22 @@
         <div class="container">
             <div class="section-title">
                 <h2>Paket Website & Aplikasi</h2>
-                <p>Pilih paket sesuai kebutuhan dengan harga yang kompetitif</p>
+                <p>Pilih paket sesuai kebutuhan dengan harga di bawah 2 juta</p>
             </div>
             
             <!-- Category Tabs -->
             <div class="category-tabs">
                 <button class="category-tab active" data-category="all">
-                    <i class="fas fa-th"></i> Semua
+                    <i class="fas fa-th"></i> Semua Paket
                 </button>
                 <button class="category-tab" data-category="website">
-                    <i class="fas fa-globe"></i> Website (500K-1JT)
+                    <i class="fas fa-globe"></i> Website (500K-1.5JT)
                 </button>
                 <button class="category-tab" data-category="app">
-                    <i class="fas fa-mobile-alt"></i> Aplikasi (1JT-3JT)
+                    <i class="fas fa-mobile-alt"></i> Aplikasi (1.5JT-1.9JT)
                 </button>
                 <button class="category-tab" data-category="ecommerce">
                     <i class="fas fa-shopping-cart"></i> E-Commerce
-                </button>
-                <button class="category-tab" data-category="custom">
-                    <i class="fas fa-cogs"></i> Custom
                 </button>
             </div>
             
@@ -1513,20 +1536,20 @@
                 
                 <div class="footer-column">
                     <h3>Paket Website</h3>
-                    <a href="#products">Website Sekolah (Rp 750K)</a>
-                    <a href="#products">Website Organisasi (Rp 600K)</a>
-                    <a href="#products">Website Pemerintahan (Rp 950K)</a>
-                    <a href="#products">Website Berita (Rp 850K)</a>
-                    <a href="#products">Website Pendidikan (Rp 700K)</a>
+                    <a href="#products">Website Sekolah (Rp 850K)</a>
+                    <a href="#products">Website Organisasi (Rp 750K)</a>
+                    <a href="#products">Website Pemerintahan (Rp 1.2JT)</a>
+                    <a href="#products">Website Berita (Rp 950K)</a>
+                    <a href="#products">Website Pendidikan (Rp 800K)</a>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Paket Aplikasi</h3>
                     <a href="#products">Aplikasi Kasir (Rp 1.8JT)</a>
                     <a href="#products">Aplikasi Inventaris (Rp 1.5JT)</a>
-                    <a href="#products">Aplikasi Perpustakaan (Rp 2JT)</a>
-                    <a href="#products">Aplikasi SPP (Rp 1.7JT)</a>
-                    <a href="#products">Aplikasi Apotik (Rp 2.2JT)</a>
+                    <a href="#products">Aplikasi Perpustakaan (Rp 1.7JT)</a>
+                    <a href="#products">Aplikasi SPP (Rp 1.6JT)</a>
+                    <a href="#products">Aplikasi Apotik (Rp 1.9JT)</a>
                 </div>
                 
                 <div class="footer-column">
@@ -1568,7 +1591,7 @@
                         <span class="order-summary-value" id="orderProductCategory">-</span>
                     </div>
                     <div class="order-summary-total">
-                        <span class="order-summary-label">Total:</span>
+                        <span class="order-summary-label">Total Pembayaran:</span>
                         <span class="order-summary-value" id="orderProductTotal">-</span>
                     </div>
                 </div>
@@ -1607,10 +1630,10 @@
     </div>
 
     <script>
-        // Data Produk dengan pengelompokan harga
+        // Data Produk dengan harga di bawah 2 juta
         const products = {
             "website": {
-                title: "Paket Website (Rp 500.000 - Rp 1.000.000)",
+                title: "Paket Website (Rp 500.000 - Rp 1.500.000)",
                 description: "Website profesional untuk berbagai kebutuhan dengan harga terjangkau",
                 items: [
                     {
@@ -1618,8 +1641,8 @@
                         name: "Website Sekolah",
                         description: "Website sekolah dengan profil, berita, galeri, dan pengumuman. Cocok untuk SD, SMP, SMA, atau pondok pesantren.",
                         image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                        price: 750000,
-                        originalPrice: 950000,
+                        price: 850000,
+                        originalPrice: 1200000,
                         category: "website",
                         badge: "Best Seller",
                         features: [
@@ -1635,8 +1658,8 @@
                         name: "Website Organisasi",
                         description: "Website untuk organisasi, yayasan, atau komunitas dengan fitur keanggotaan dan kegiatan.",
                         image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                        price: 600000,
-                        originalPrice: 800000,
+                        price: 750000,
+                        originalPrice: 1000000,
                         category: "website",
                         badge: "Populer",
                         features: [
@@ -1652,8 +1675,8 @@
                         name: "Website Pemerintahan",
                         description: "Website resmi untuk desa, kelurahan, atau instansi pemerintah dengan tampilan formal dan informatif.",
                         image: "https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                        price: 950000,
-                        originalPrice: 1200000,
+                        price: 1200000,
+                        originalPrice: 1600000,
                         category: "website",
                         badge: "Resmi",
                         features: [
@@ -1669,8 +1692,8 @@
                         name: "Website Berita",
                         description: "Portal berita online dengan sistem manajemen konten untuk publikasi artikel berita.",
                         image: "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                        price: 850000,
-                        originalPrice: 1100000,
+                        price: 950000,
+                        originalPrice: 1300000,
                         category: "website",
                         badge: "Update",
                         features: [
@@ -1686,8 +1709,8 @@
                         name: "Website Pendidikan",
                         description: "Website untuk lembaga pendidikan seperti kursus, bimbingan belajar, atau training center.",
                         image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                        price: 700000,
-                        originalPrice: 900000,
+                        price: 800000,
+                        originalPrice: 1100000,
                         category: "website",
                         badge: "Edukasi",
                         features: [
@@ -1703,8 +1726,8 @@
                         name: "Website Personal/Portfolio",
                         description: "Website personal untuk portofolio pekerjaan, CV online, atau blog pribadi.",
                         image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                        price: 500000,
-                        originalPrice: 700000,
+                        price: 600000,
+                        originalPrice: 900000,
                         category: "website",
                         badge: "Personal",
                         features: [
@@ -1718,7 +1741,7 @@
                 ]
             },
             "app": {
-                title: "Paket Aplikasi (Rp 1.000.000 - Rp 3.000.000)",
+                title: "Paket Aplikasi (Rp 1.500.000 - Rp 1.999.000)",
                 description: "Aplikasi berbasis web dan mobile untuk kebutuhan bisnis yang lebih kompleks",
                 items: [
                     {
@@ -1760,8 +1783,8 @@
                         name: "Aplikasi Perpustakaan",
                         description: "Sistem manajemen perpustakaan digital dengan katalog buku, peminjaman, dan pengembalian.",
                         image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                        price: 2000000,
-                        originalPrice: 2800000,
+                        price: 1700000,
+                        originalPrice: 2300000,
                         category: "app",
                         badge: "Digital",
                         features: [
@@ -1777,8 +1800,8 @@
                         name: "Aplikasi SPP Sekolah",
                         description: "Sistem pembayaran SPP dan administrasi keuangan sekolah dengan pembayaran online.",
                         image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=60",
-                        price: 1700000,
-                        originalPrice: 2300000,
+                        price: 1600000,
+                        originalPrice: 2200000,
                         category: "app",
                         badge: "Sekolah",
                         features: [
@@ -1794,8 +1817,8 @@
                         name: "Aplikasi Apotek",
                         description: "Sistem manajemen apotek dengan data obat, resep dokter, dan penjualan.",
                         image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                        price: 2200000,
-                        originalPrice: 3000000,
+                        price: 1900000,
+                        originalPrice: 2600000,
                         category: "app",
                         badge: "Medis",
                         features: [
@@ -1808,28 +1831,11 @@
                     },
                     {
                         id: 12,
-                        name: "Aplikasi Wisata",
-                        description: "Sistem pemesanan tiket dan paket wisata untuk biro perjalanan atau objek wisata.",
-                        image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                        price: 1900000,
-                        originalPrice: 2600000,
-                        category: "app",
-                        badge: "Travel",
-                        features: [
-                            "Katalog paket wisata",
-                            "Pemesanan tiket online",
-                            "Sistem pembayaran",
-                            "Manajemen jadwal tour",
-                            "Review & rating"
-                        ]
-                    },
-                    {
-                        id: 13,
                         name: "Aplikasi Koperasi",
                         description: "Sistem manajemen koperasi simpan pinjam dengan pembukuan dan laporan keuangan.",
                         image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=40",
-                        price: 2100000,
-                        originalPrice: 2900000,
+                        price: 1750000,
+                        originalPrice: 2400000,
                         category: "app",
                         badge: "Koperasi",
                         features: [
@@ -1839,23 +1845,6 @@
                             "Laporan keuangan",
                             "Manajemen anggota"
                         ]
-                    },
-                    {
-                        id: 14,
-                        name: "Aplikasi Custom",
-                        description: "Aplikasi custom sesuai kebutuhan spesifik bisnis Anda dengan konsultasi terlebih dahulu.",
-                        image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=60",
-                        price: 3000000,
-                        originalPrice: 4000000,
-                        category: "app",
-                        badge: "Custom",
-                        features: [
-                            "Analisis kebutuhan bisnis",
-                            "Desain UI/UX custom",
-                            "Pengembangan full stack",
-                            "Testing & deployment",
-                            "Maintenance & support"
-                        ]
                     }
                 ]
             },
@@ -1864,12 +1853,12 @@
                 description: "Website toko online dengan sistem pembayaran dan manajemen produk",
                 items: [
                     {
-                        id: 15,
+                        id: 13,
                         name: "Toko Online UKM",
                         description: "Website toko online untuk UKM dengan katalog produk, keranjang belanja, dan checkout.",
                         image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                        price: 1500000,
-                        originalPrice: 2000000,
+                        price: 1400000,
+                        originalPrice: 1900000,
                         category: "ecommerce",
                         badge: "UKM",
                         features: [
@@ -1881,12 +1870,12 @@
                         ]
                     },
                     {
-                        id: 16,
+                        id: 14,
                         name: "Marketplace Mini",
                         description: "Platform marketplace dengan multi-vendor untuk menjual produk dari berbagai penjual.",
                         image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=60",
-                        price: 2500000,
-                        originalPrice: 3500000,
+                        price: 1950000,
+                        originalPrice: 2800000,
                         category: "ecommerce",
                         badge: "Marketplace",
                         features: [
@@ -1895,46 +1884,6 @@
                             "Review & rating produk",
                             "Dashboard untuk penjual",
                             "Admin panel lengkap"
-                        ]
-                    }
-                ]
-            },
-            "custom": {
-                title: "Paket Custom Development",
-                description: "Solusi custom untuk kebutuhan spesifik yang tidak tersedia di paket standar",
-                items: [
-                    {
-                        id: 17,
-                        name: "Website Custom",
-                        description: "Website dengan desain dan fitur khusus sesuai kebutuhan bisnis Anda.",
-                        image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                        price: 1200000,
-                        originalPrice: 1800000,
-                        category: "custom",
-                        badge: "Tailored",
-                        features: [
-                            "Konsultasi kebutuhan",
-                            "Desain UI/UX custom",
-                            "Fitur sesuai permintaan",
-                            "Development khusus",
-                            "Testing & deployment"
-                        ]
-                    },
-                    {
-                        id: 18,
-                        name: "Aplikasi Mobile",
-                        description: "Aplikasi mobile native untuk iOS dan Android dengan fitur khusus.",
-                        image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                        price: 3500000,
-                        originalPrice: 5000000,
-                        category: "custom",
-                        badge: "Mobile",
-                        features: [
-                            "Aplikasi iOS & Android",
-                            "Desain mobile-friendly",
-                            "Integrasi API",
-                            "Push notification",
-                            "App store deployment"
                         ]
                     }
                 ]
@@ -2120,7 +2069,6 @@
                 case 'website': return 'globe';
                 case 'app': return 'mobile-alt';
                 case 'ecommerce': return 'shopping-cart';
-                case 'custom': return 'cogs';
                 default: return 'cube';
             }
         }
