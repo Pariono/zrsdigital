@@ -3,19 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV. ZRS Digital - Portofolio & Pembelian Aplikasi</title>
+    <title>CV. ZRS Digital - Solusi Aplikasi & Website Profesional</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --success: #27ae60;
-            --warning: #f39c12;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --gray: #95a5a6;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --transition: all 0.3s ease;
         }
         
         * {
@@ -24,35 +32,82 @@
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
         }
         
         h1, h2, h3, h4, h5 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
         }
         
         .container {
-            width: 90%;
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
         }
         
         /* Header & Navigation */
         header {
-            background-color: var(--primary);
-            color: white;
-            padding: 1rem 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 15px 0;
+            box-shadow: var(--shadow);
         }
         
         .header-container {
@@ -64,868 +119,742 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            text-decoration: none;
         }
         
-        .logo i {
-            color: var(--secondary);
-            font-size: 1.8rem;
-        }
-        
-        .logo h1 {
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
             font-size: 1.5rem;
         }
         
-        .logo span {
-            color: var(--secondary);
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .logo-text span {
+            color: var(--primary);
+        }
+        
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-top: -5px;
         }
         
         nav ul {
             display: flex;
             list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 1.5rem;
-            position: relative;
+            gap: 30px;
         }
         
         nav ul li a {
-            color: white;
             text-decoration: none;
+            color: var(--dark);
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
             padding: 5px 0;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
         }
         
         nav ul li a:hover {
-            color: var(--secondary);
+            color: var(--primary);
         }
         
-        .cart-count {
-            background-color: var(--accent);
-            color: white;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-cta {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            position: absolute;
-            top: -10px;
-            right: -10px;
+            gap: 15px;
         }
         
-        .mobile-menu {
+        .whatsapp-contact {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #25D366;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
+        }
+        
+        .whatsapp-contact:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .mobile-menu-btn {
             display: none;
+            background: none;
+            border: none;
             font-size: 1.5rem;
+            color: var(--dark);
             cursor: pointer;
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, #1a2530 100%);
-            color: white;
-            padding: 8rem 0 5rem;
-            margin-top: 60px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #fef7ff 100%);
+            padding: 150px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
+            top: -250px;
+            right: -100px;
+            z-index: 0;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%);
+            bottom: -150px;
+            left: -100px;
+            z-index: 0;
         }
         
         .hero-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
         
         .hero-text {
             flex: 1;
-            min-width: 300px;
+            max-width: 600px;
         }
         
-        .hero-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .hero-text .badge {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.2rem;
             line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .hero-text h1 span {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
         .hero-text p {
             font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: var(--light);
-            max-width: 600px;
+            color: var(--gray);
+            margin-bottom: 30px;
+            max-width: 500px;
         }
         
-        .cta-button {
-            display: inline-block;
-            background-color: var(--secondary);
-            color: white;
-            padding: 0.8rem 1.8rem;
-            border-radius: 5px;
-            text-decoration: none;
+        .hero-cta {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary, .btn-secondary {
+            padding: 15px 30px;
+            border-radius: 50px;
             font-weight: 600;
-            transition: all 0.3s;
-            border: none;
+            font-size: 1rem;
             cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
         }
         
-        .cta-button:hover {
-            background-color: #2980b9;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        .btn-primary {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-secondary {
+            background-color: white;
+            color: var(--dark);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--gray-light);
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+        
+        .stat-text {
+            font-size: 0.9rem;
+            color: var(--gray);
         }
         
         .hero-image {
             flex: 1;
-            min-width: 300px;
             text-align: center;
+            position: relative;
         }
         
         .hero-image img {
             max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            animation: float 6s ease-in-out infinite;
         }
         
-        /* Section Styles */
-        section {
-            padding: 5rem 0;
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
         
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
+        /* Products Section */
+        .products {
+            background-color: white;
         }
         
-        .section-title h2 {
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            position: relative;
-            display: inline-block;
+        .products-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
         }
         
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            width: 70px;
-            height: 3px;
-            background-color: var(--secondary);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .section-title p {
+        .filter-btn {
+            padding: 10px 20px;
+            background-color: white;
+            border: 1px solid var(--gray-light);
+            border-radius: 50px;
             color: var(--gray);
-            max-width: 700px;
-            margin: 1rem auto 0;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
         }
         
-        /* Products/Portfolio Section */
+        .filter-btn.active, .filter-btn:hover {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border-color: transparent;
+        }
+        
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
         }
         
         .product-card {
             background-color: white;
-            border-radius: 10px;
+            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            flex-direction: column;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid var(--gray-light);
         }
         
         .product-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-lg);
         }
         
-        .product-img {
-            height: 200px;
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(to right, var(--accent), #f97316);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .product-image {
+            height: 220px;
             overflow: hidden;
         }
         
-        .product-img img {
+        .product-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: var(--transition);
         }
         
-        .product-card:hover .product-img img {
+        .product-card:hover .product-image img {
             transform: scale(1.05);
         }
         
-        .product-info {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+        .product-content {
+            padding: 25px;
         }
         
-        .product-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
+        .product-category {
+            display: inline-block;
             color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 10px;
         }
         
-        .product-info p {
-            color: #666;
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .product-description {
+            color: var(--gray);
             font-size: 0.95rem;
-            margin-bottom: 1rem;
-            flex-grow: 1;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .product-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .product-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .product-features li i {
+            color: var(--success);
         }
         
         .product-price {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--secondary);
-            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-light);
         }
         
-        .product-price span {
-            font-size: 0.9rem;
+        .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .price span {
+            font-size: 1rem;
             color: var(--gray);
             text-decoration: line-through;
             margin-left: 5px;
         }
         
-        .product-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 1rem;
-        }
-        
-        .tag {
-            background-color: #e8f4fc;
-            color: var(--secondary);
-            padding: 0.2rem 0.7rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-        }
-        
         .product-actions {
             display: flex;
             gap: 10px;
-            margin-top: auto;
         }
         
-        .btn-buy, .btn-detail {
+        .btn-whatsapp, .btn-detail {
             flex: 1;
-            padding: 0.7rem;
-            border: none;
-            border-radius: 5px;
+            padding: 12px;
+            border-radius: var(--radius-sm);
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            text-decoration: none;
+            font-size: 0.95rem;
         }
         
-        .btn-buy {
-            background-color: var(--success);
+        .btn-whatsapp {
+            background-color: #25D366;
             color: white;
         }
         
-        .btn-buy:hover {
-            background-color: #219653;
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
         }
         
         .btn-detail {
-            background-color: #f0f0f0;
+            background-color: var(--gray-light);
             color: var(--dark);
         }
         
         .btn-detail:hover {
-            background-color: #e0e0e0;
-        }
-        
-        /* Cart Modal */
-        .cart-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .cart-content {
-            background-color: white;
-            width: 90%;
-            max-width: 800px;
-            max-height: 80vh;
-            border-radius: 10px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .cart-header {
             background-color: var(--primary);
             color: white;
-            padding: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .cart-header h3 {
-            font-size: 1.5rem;
-        }
-        
-        .close-cart {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            cursor: pointer;
-            line-height: 1;
-        }
-        
-        .cart-body {
-            padding: 1.5rem;
-            flex-grow: 1;
-            overflow-y: auto;
-        }
-        
-        .cart-empty {
-            text-align: center;
-            padding: 2rem;
-            color: var(--gray);
-        }
-        
-        .cart-empty i {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #ddd;
-        }
-        
-        .cart-items {
-            width: 100%;
-        }
-        
-        .cart-item {
-            display: flex;
-            align-items: center;
-            padding: 1rem 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .cart-item:last-child {
-            border-bottom: none;
-        }
-        
-        .cart-item-img {
-            width: 80px;
-            height: 80px;
-            border-radius: 5px;
-            overflow: hidden;
-            margin-right: 1rem;
-        }
-        
-        .cart-item-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .cart-item-details {
-            flex-grow: 1;
-        }
-        
-        .cart-item-details h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
-        }
-        
-        .cart-item-price {
-            color: var(--secondary);
-            font-weight: 600;
-        }
-        
-        .cart-item-quantity {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 0.5rem;
-        }
-        
-        .quantity-btn {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background-color: #f0f0f0;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-        
-        .quantity {
-            font-weight: 600;
-            min-width: 30px;
-            text-align: center;
-        }
-        
-        .cart-item-remove {
-            background: none;
-            border: none;
-            color: var(--accent);
-            cursor: pointer;
-            font-size: 1.2rem;
-            margin-left: 1rem;
-        }
-        
-        .cart-footer {
-            padding: 1.5rem;
-            border-top: 1px solid #eee;
-            background-color: #f9f9f9;
-        }
-        
-        .cart-total {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-        
-        .cart-total-amount {
-            color: var(--secondary);
-        }
-        
-        .cart-actions {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .btn-checkout, .btn-continue {
-            flex: 1;
-            padding: 0.8rem;
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .btn-checkout {
-            background-color: var(--success);
-            color: white;
-        }
-        
-        .btn-checkout:hover {
-            background-color: #219653;
-        }
-        
-        .btn-continue {
-            background-color: #f0f0f0;
-            color: var(--dark);
-        }
-        
-        .btn-continue:hover {
-            background-color: #e0e0e0;
-        }
-        
-        /* Checkout Modal */
-        .checkout-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 3000;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .checkout-content {
-            background-color: white;
-            width: 90%;
-            max-width: 600px;
-            max-height: 90vh;
-            border-radius: 10px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .checkout-header {
-            background-color: var(--primary);
-            color: white;
-            padding: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .checkout-header h3 {
-            font-size: 1.5rem;
-        }
-        
-        .close-checkout {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            cursor: pointer;
-            line-height: 1;
-        }
-        
-        .checkout-body {
-            padding: 1.5rem;
-            flex-grow: 1;
-            overflow-y: auto;
-        }
-        
-        .checkout-summary {
-            background-color: #f9f9f9;
-            padding: 1rem;
-            border-radius: 5px;
-            margin-bottom: 1.5rem;
-        }
-        
-        .checkout-summary h4 {
-            margin-bottom: 0.8rem;
-            color: var(--primary);
-        }
-        
-        .checkout-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-        
-        .checkout-total {
-            display: flex;
-            justify-content: space-between;
-            font-weight: 600;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid #ddd;
-        }
-        
-        .checkout-form {
-            margin-top: 1.5rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-        
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Roboto', sans-serif;
-        }
-        
-        .form-group textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-        
-        .form-row {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .form-row .form-group {
-            flex: 1;
-        }
-        
-        .payment-methods {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-            margin-top: 1rem;
-        }
-        
-        .payment-method {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .payment-method:hover {
-            border-color: var(--secondary);
-        }
-        
-        .payment-method input {
-            width: auto;
-        }
-        
-        .checkout-footer {
-            padding: 1.5rem;
-            border-top: 1px solid #eee;
-            background-color: #f9f9f9;
-            text-align: center;
-        }
-        
-        .btn-confirm {
-            background-color: var(--success);
-            color: white;
-            padding: 0.9rem 2rem;
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 1rem;
-        }
-        
-        .btn-confirm:hover {
-            background-color: #219653;
-        }
-        
-        /* Success Modal */
-        .success-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 4000;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .success-content {
-            background-color: white;
-            width: 90%;
-            max-width: 500px;
-            border-radius: 10px;
-            overflow: hidden;
-            text-align: center;
-            padding: 2.5rem 2rem;
-        }
-        
-        .success-icon {
-            color: var(--success);
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .success-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-        
-        .success-content p {
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-        
-        .btn-success {
-            background-color: var(--secondary);
-            color: white;
-            padding: 0.8rem 1.8rem;
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .btn-success:hover {
-            background-color: #2980b9;
+            transform: translateY(-3px);
         }
         
         /* Services Section */
+        .services {
+            background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
+        }
+        
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 30px;
         }
         
         .service-card {
             background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            height: 100%;
+            border-radius: var(--radius);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid transparent;
         }
         
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
         }
         
         .service-icon {
-            background-color: var(--secondary);
-            color: white;
+            width: 80px;
             height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 2rem;
         }
         
-        .service-content {
-            padding: 1.5rem;
+        .service-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark);
         }
         
-        .service-content h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-            color: var(--primary);
+        .service-description {
+            color: var(--gray);
+            margin-bottom: 20px;
         }
         
-        .service-content p {
-            color: #555;
-            margin-bottom: 1rem;
+        .service-list {
+            list-style: none;
+            text-align: left;
+            margin-top: 20px;
         }
         
-        /* GitHub Section */
-        .github-section {
-            background-color: #f1f8ff;
-        }
-        
-        .github-box {
-            background-color: white;
-            border-radius: 10px;
-            padding: 2.5rem;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .github-box i {
-            font-size: 3.5rem;
-            color: #333;
-            margin-bottom: 1.5rem;
-        }
-        
-        .github-box h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-        
-        .github-box p {
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-        
-        .github-link {
-            display: inline-flex;
+        .service-list li {
+            display: flex;
             align-items: center;
             gap: 10px;
-            background-color: #333;
-            color: white;
-            padding: 0.8rem 1.8rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s;
+            margin-bottom: 10px;
+            color: var(--gray);
         }
         
-        .github-link:hover {
-            background-color: #555;
+        .service-list li i {
+            color: var(--success);
+            font-size: 0.9rem;
+        }
+        
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        
+        .whatsapp-float-text {
+            position: absolute;
+            right: 70px;
+            background-color: #25D366;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(10px);
+            transition: var(--transition);
+            pointer-events: none;
+        }
+        
+        .whatsapp-float:hover .whatsapp-float-text {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .contact .section-title h2 {
+            color: white;
+        }
+        
+        .contact .section-title p {
+            color: #cbd5e1;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info p {
+            color: #cbd5e1;
+            margin-bottom: 30px;
+        }
+        
+        .contact-details {
+            list-style: none;
+        }
+        
+        .contact-details li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-details li i {
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+        
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: var(--radius);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #cbd5e1;
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-sm);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
         
         /* Footer */
         footer {
-            background-color: var(--primary);
+            background-color: #0f172a;
             color: white;
-            padding: 3rem 0 1.5rem;
+            padding: 60px 0 30px;
         }
         
         .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-column {
-            flex: 1;
-            min-width: 250px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
         }
         
         .footer-column h3 {
             font-size: 1.3rem;
-            margin-bottom: 1.2rem;
-            color: var(--secondary);
+            margin-bottom: 25px;
+            color: white;
         }
         
         .footer-column p, .footer-column a {
-            color: #ccc;
-            margin-bottom: 0.8rem;
-            display: block;
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+        
+        .footer-column a {
             text-decoration: none;
-            transition: color 0.3s;
+            transition: var(--transition);
+            display: block;
+            margin-bottom: 10px;
         }
         
         .footer-column a:hover {
-            color: var(--secondary);
+            color: var(--primary);
+            transform: translateX(5px);
         }
         
         .social-links {
             display: flex;
             gap: 15px;
-            margin-top: 1rem;
+            margin-top: 20px;
         }
         
         .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
             width: 40px;
             height: 40px;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            transition: all 0.3s;
+            transition: var(--transition);
         }
         
         .social-links a:hover {
-            background-color: var(--secondary);
+            background-color: var(--primary);
             transform: translateY(-5px);
         }
         
         .copyright {
             text-align: center;
-            padding-top: 1.5rem;
+            padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #aaa;
+            color: #94a3b8;
             font-size: 0.9rem;
         }
         
@@ -937,10 +866,14 @@
             }
             
             .hero-text {
-                margin-bottom: 2rem;
+                margin-bottom: 50px;
             }
             
-            .hero-text h2 {
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .section-title h2 {
                 font-size: 2.2rem;
             }
         }
@@ -952,112 +885,172 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background-color: var(--primary);
+                background-color: white;
                 flex-direction: column;
-                padding: 1rem 0;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                box-shadow: var(--shadow);
+                text-align: center;
+                border-radius: 0 0 var(--radius) var(--radius);
             }
             
             nav ul.active {
                 display: flex;
             }
             
-            nav ul li {
-                margin: 0;
-                text-align: center;
+            .nav-cta {
+                display: none;
             }
             
-            nav ul li a {
-                display: flex;
-                justify-content: center;
-                padding: 0.8rem 1rem;
-            }
-            
-            .mobile-menu {
+            .mobile-menu-btn {
                 display: block;
             }
             
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .github-box {
-                padding: 1.5rem;
-            }
-            
-            .cart-content, .checkout-content {
-                width: 95%;
-            }
-            
-            .form-row {
-                flex-direction: column;
-                gap: 0;
-            }
-            
-            .cart-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .cart-item-img {
-                margin-bottom: 1rem;
-            }
-            
-            .cart-actions, .product-actions {
-                flex-direction: column;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero {
-                padding: 6rem 0 3rem;
-            }
-            
-            .hero-text h2 {
-                font-size: 1.8rem;
-            }
-            
-            section {
-                padding: 3rem 0;
+            .hero-text h1 {
+                font-size: 2.5rem;
             }
             
             .products-grid {
                 grid-template-columns: 1fr;
             }
             
-            .success-content {
-                padding: 2rem 1rem;
+            .form-row {
+                grid-template-columns: 1fr;
             }
+            
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 130px 0 60px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .btn-primary, .btn-secondary {
+                padding: 12px 24px;
+                font-size: 0.95rem;
+            }
+            
+            .hero-cta {
+                justify-content: center;
+            }
+        }
+        
+        /* Animation classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Modal for product details */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: var(--radius);
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--dark);
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        .modal-body {
+            padding: 40px;
         }
     </style>
 </head>
 <body>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/6285210212740?text=Halo%20CV.%20ZRS%20Digital%2C%20saya%20ingin%20konsultasi%20tentang%20pembuatan%20aplikasi%2Fwebsite" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-float-text">Konsultasi via WhatsApp</span>
+    </a>
+
     <!-- Header & Navigation -->
-    <header>
+    <header id="header">
         <div class="container header-container">
-            <div class="logo">
-                <i class="fas fa-code"></i>
-                <h1>CV. <span>ZRS Digital</span></h1>
-            </div>
+            <a href="#home" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>ZRS <span>Digital</span></h1>
+                    <p>Solusi Digital Profesional</p>
+                </div>
+            </a>
             
-            <div class="mobile-menu" id="mobileMenu">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
-            </div>
+            </button>
             
             <nav>
                 <ul id="navMenu">
                     <li><a href="#home">Beranda</a></li>
-                    <li><a href="#products">Produk & Layanan</a></li>
-                    <li><a href="#services">Jasa Pembuatan</a></li>
-                    <li><a href="#github">GitHub</a></li>
-                    <li>
-                        <a href="#" id="cartButton">
-                            <i class="fas fa-shopping-cart"></i> Keranjang
-                            <span class="cart-count" id="cartCount">0</span>
-                        </a>
-                    </li>
+                    <li><a href="#products">Produk</a></li>
+                    <li><a href="#services">Layanan</a></li>
+                    <li><a href="#contact">Kontak</a></li>
                 </ul>
             </nav>
+            
+            <div class="nav-cta">
+                <a href="https://wa.me/6285210212740?text=Halo%20CV.%20ZRS%20Digital%2C%20saya%20ingin%20konsultasi%20tentang%20pembuatan%20aplikasi%2Fwebsite" target="_blank" class="whatsapp-contact">
+                    <i class="fab fa-whatsapp"></i> 0852-1021-2740
+                </a>
+            </div>
         </div>
     </header>
 
@@ -1065,153 +1058,236 @@
     <section class="hero" id="home">
         <div class="container hero-content">
             <div class="hero-text">
-                <h2>Solusi Digital untuk Bisnis dan Institusi Anda</h2>
-                <p>CV. ZRS Digital adalah perusahaan pengembang aplikasi dan website profesional yang menyediakan solusi digital untuk sekolah, organisasi, UKM, pemerintahan, dan berbagai kebutuhan bisnis lainnya.</p>
-                <a href="#products" class="cta-button">Lihat Produk & Layanan</a>
+                <span class="badge animate__animated animate__pulse animate__infinite">🔥 Promo Khusus Bulan Ini</span>
+                <h1 class="animate__animated animate__fadeInUp">Transformasi Bisnis Anda dengan <span>Solusi Digital</span></h1>
+                <p class="animate__animated animate__fadeInUp animate__delay-1s">CV. ZRS Digital menghadirkan aplikasi dan website berkualitas untuk sekolah, organisasi, UKM, pemerintahan, dan berbagai kebutuhan bisnis lainnya. Solusi tepat untuk transformasi digital bisnis Anda.</p>
+                
+                <div class="hero-cta">
+                    <a href="#products" class="btn-primary animate__animated animate__fadeInUp animate__delay-2s">
+                        <i class="fas fa-shopping-cart"></i> Lihat Produk
+                    </a>
+                    <a href="#contact" class="btn-secondary animate__animated animate__fadeInUp animate__delay-2s">
+                        <i class="fas fa-comment-alt"></i> Konsultasi Gratis
+                    </a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">150+</span>
+                        <span class="stat-text">Proyek Selesai</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-text">Kepuasan Klien</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-text">Support</span>
+                    </div>
+                </div>
             </div>
+            
             <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="ZRS Digital Development">
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="ZRS Digital Development" class="animate__animated animate__fadeInRight">
             </div>
         </div>
     </section>
 
     <!-- Products Section -->
-    <section id="products">
+    <section class="products" id="products">
         <div class="container">
             <div class="section-title">
-                <h2>Produk & Layanan Kami</h2>
-                <p>Pilih dan pesan produk/layanan digital yang sesuai dengan kebutuhan Anda</p>
+                <h2>Produk & Layanan Unggulan</h2>
+                <p>Pilih solusi digital yang sesuai dengan kebutuhan bisnis atau institusi Anda</p>
+            </div>
+            
+            <div class="products-filter">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="website">Website</button>
+                <button class="filter-btn" data-filter="app">Aplikasi</button>
+                <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
             </div>
             
             <div class="products-grid" id="productsGrid">
-                <!-- Product items will be added dynamically -->
+                <!-- Products will be loaded by JavaScript -->
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" style="background-color: #f5f7fa;">
+    <section class="services" id="services">
         <div class="container">
             <div class="section-title">
-                <h2>Jasa Pembuatan Custom</h2>
+                <h2>Layanan Custom Development</h2>
                 <p>Kami juga menerima pembuatan aplikasi dan website custom sesuai kebutuhan spesifik Anda</p>
             </div>
             
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card animate-on-scroll">
                     <div class="service-icon">
                         <i class="fas fa-laptop-code"></i>
                     </div>
-                    <div class="service-content">
-                        <h3>Aplikasi Berbasis Web</h3>
-                        <p>Pengembangan aplikasi web custom untuk berbagai keperluan bisnis dan organisasi dengan teknologi terkini.</p>
-                    </div>
+                    <h3 class="service-title">Aplikasi Berbasis Web</h3>
+                    <p class="service-description">Pengembangan aplikasi web custom untuk berbagai keperluan bisnis dan organisasi dengan teknologi terkini.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Sistem Manajemen Konten</li>
+                        <li><i class="fas fa-check"></i> Aplikasi CRM & ERP</li>
+                        <li><i class="fas fa-check"></i> Sistem Reservasi Online</li>
+                    </ul>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-card animate-on-scroll">
                     <div class="service-icon">
-                        <i class="fas fa-school"></i>
+                        <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <div class="service-content">
-                        <h3>Website Sekolah</h3>
-                        <p>Website informasi dan akademik untuk sekolah dengan fitur lengkap seperti jadwal, nilai, dan pengumuman.</p>
-                    </div>
+                    <h3 class="service-title">Aplikasi Mobile</h3>
+                    <p class="service-description">Pengembangan aplikasi mobile untuk iOS dan Android sesuai kebutuhan bisnis Anda.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Aplikasi E-Commerce</li>
+                        <li><i class="fas fa-check"></i> Aplikasi Layanan Publik</li>
+                        <li><i class="fas fa-check"></i> Aplikasi Pendidikan</li>
+                    </ul>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-card animate-on-scroll">
                     <div class="service-icon">
-                        <i class="fas fa-cash-register"></i>
+                        <i class="fas fa-shopping-cart"></i>
                     </div>
-                    <div class="service-content">
-                        <h3>Aplikasi Kasir & POS</h3>
-                        <p>Sistem point of sale untuk toko, restoran, dan retail dengan laporan penjualan dan inventori.</p>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-prescription-bottle"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Aplikasi Apotek</h3>
-                        <p>Sistem manajemen apotek untuk pencatatan obat, resep, stok, dan penjualan.</p>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-sitemap"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Website Organisasi</h3>
-                        <p>Website untuk organisasi, yayasan, atau komunitas dengan fitur keanggotaan dan kegiatan.</p>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-landmark"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Website Pemerintahan</h3>
-                        <p>Website resmi untuk instansi pemerintahan dengan fitur layanan publik dan informasi resmi.</p>
-                    </div>
+                    <h3 class="service-title">E-Commerce Solutions</h3>
+                    <p class="service-description">Membangun platform e-commerce yang powerful dan user-friendly untuk meningkatkan penjualan online.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Toko Online Custom</li>
+                        <li><i class="fas fa-check"></i> Marketplace Development</li>
+                        <li><i class="fas fa-check"></i> Integrasi Payment Gateway</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- GitHub Section -->
-    <section class="github-section" id="github">
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
         <div class="container">
             <div class="section-title">
-                <h2>Akses Melalui GitHub</h2>
-                <p>Portofolio ini dapat diakses langsung melalui GitHub Pages tanpa perlu hosting eksternal</p>
+                <h2>Hubungi Kami</h2>
+                <p>Konsultasikan kebutuhan digital Anda dengan tim profesional kami</p>
             </div>
             
-            <div class="github-box">
-                <i class="fab fa-github"></i>
-                <h3>Portofolio GitHub Pages</h3>
-                <p>Website portofolio CV. ZRS Digital ini dihosting secara gratis di GitHub Pages. Anda dapat mengakses kode sumbernya dan melihat bagaimana kami membangun portofolio ini.</p>
-                <p>GitHub Pages memungkinkan kami menampilkan proyek-proyek kami secara online tanpa biaya hosting, sehingga mudah diakses oleh calon klien.</p>
-                <a href="https://github.com" target="_blank" class="github-link">
-                    <i class="fab fa-github"></i> Kunjungi Repository GitHub
-                </a>
-                <div style="margin-top: 1.5rem; font-size: 0.9rem; color: #777;">
-                    <p><strong>Instruksi:</strong> Fork repository ini ke akun GitHub Anda, kemudian aktifkan GitHub Pages di settings untuk meng-host portofolio Anda sendiri.</p>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Mari Berkolaborasi</h3>
+                    <p>Tim CV. ZRS Digital siap membantu transformasi digital bisnis atau institusi Anda. Hubungi kami untuk konsultasi gratis.</p>
+                    
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>Telepon/WhatsApp</h4>
+                                <p>0852-1021-2740</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@zrsdigital.com</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Lokasi</h4>
+                                <p>Jl. Teknologi No. 123, Kota Digital</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nama Lengkap *</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">No. Telepon/WhatsApp *</label>
+                                <input type="tel" id="phone" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Jenis Layanan yang Dibutuhkan</label>
+                            <select id="service">
+                                <option value="">Pilih Layanan</option>
+                                <option value="website">Website</option>
+                                <option value="app">Aplikasi</option>
+                                <option value="ecommerce">E-Commerce</option>
+                                <option value="custom">Custom Development</option>
+                                <option value="consultation">Konsultasi</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Pesan *</label>
+                            <textarea id="message" required placeholder="Jelaskan kebutuhan project Anda..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i> Kirim via WhatsApp
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>CV. ZRS Digital</h3>
-                    <p>Perusahaan pengembang aplikasi dan website profesional dengan pengalaman dalam berbagai proyek digital.</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Jl. Teknologi No. 123, Kota Digital</p>
-                    <p><i class="fas fa-phone"></i> (021) 1234-5678</p>
-                    <p><i class="fas fa-envelope"></i> info@zrsdigital.com</p>
+                    <p>Perusahaan pengembang aplikasi dan website profesional dengan pengalaman dalam berbagai proyek digital untuk berbagai sektor.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Produk & Layanan</h3>
-                    <a href="#products">Paket Website Sekolah</a>
-                    <a href="#products">Aplikasi Kasir Toko</a>
-                    <a href="#products">Sistem Manajemen Apotek</a>
+                    <h3>Layanan Kami</h3>
+                    <a href="#products">Website Sekolah</a>
+                    <a href="#products">Aplikasi Kasir</a>
+                    <a href="#products">Sistem Apotek</a>
                     <a href="#products">Website Pemerintahan</a>
-                    <a href="#products">Website Berita</a>
+                    <a href="#products">Toko Online UKM</a>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Jasa Custom</h3>
-                    <a href="#services">Aplikasi Berbasis Web</a>
-                    <a href="#services">Website Organisasi</a>
-                    <a href="#services">Website UKM</a>
-                    <a href="#services">Website Masjid</a>
-                    <a href="#services">Dan Lain-lain</a>
+                    <h3>Link Cepat</h3>
+                    <a href="#home">Beranda</a>
+                    <a href="#products">Produk</a>
+                    <a href="#services">Layanan</a>
+                    <a href="#contact">Kontak</a>
+                    <a href="#contact">Konsultasi Gratis</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Kontak</h3>
+                    <p><i class="fas fa-phone-alt"></i> 0852-1021-2740</p>
+                    <p><i class="fas fa-envelope"></i> info@zrsdigital.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Teknologi No. 123, Kota Digital</p>
+                    <a href="https://wa.me/6285210212740" target="_blank" class="whatsapp-contact" style="display: inline-flex; margin-top: 15px;">
+                        <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+                    </a>
                 </div>
             </div>
             
@@ -1221,117 +1297,13 @@
         </div>
     </footer>
 
-    <!-- Cart Modal -->
-    <div class="cart-modal" id="cartModal">
-        <div class="cart-content">
-            <div class="cart-header">
-                <h3><i class="fas fa-shopping-cart"></i> Keranjang Belanja</h3>
-                <button class="close-cart" id="closeCart">&times;</button>
+    <!-- Product Detail Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <div class="modal-body" id="modalBody">
+                <!-- Product detail will be loaded here -->
             </div>
-            <div class="cart-body" id="cartBody">
-                <!-- Cart items will be added dynamically -->
-            </div>
-            <div class="cart-footer">
-                <div class="cart-total">
-                    <span>Total:</span>
-                    <span class="cart-total-amount" id="cartTotal">Rp 0</span>
-                </div>
-                <div class="cart-actions">
-                    <button class="btn-continue" id="continueShopping">Lanjut Belanja</button>
-                    <button class="btn-checkout" id="checkoutButton">Checkout</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Checkout Modal -->
-    <div class="checkout-modal" id="checkoutModal">
-        <div class="checkout-content">
-            <div class="checkout-header">
-                <h3><i class="fas fa-credit-card"></i> Checkout Pesanan</h3>
-                <button class="close-checkout" id="closeCheckout">&times;</button>
-            </div>
-            <div class="checkout-body">
-                <div class="checkout-summary">
-                    <h4>Ringkasan Pesanan</h4>
-                    <div id="checkoutSummary">
-                        <!-- Order summary will be added dynamically -->
-                    </div>
-                    <div class="checkout-total">
-                        <span>Total Pembayaran:</span>
-                        <span id="checkoutTotal">Rp 0</span>
-                    </div>
-                </div>
-                
-                <div class="checkout-form">
-                    <h4>Informasi Pemesan</h4>
-                    <div class="form-group">
-                        <label for="customerName">Nama Lengkap *</label>
-                        <input type="text" id="customerName" required>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="customerEmail">Email *</label>
-                            <input type="email" id="customerEmail" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="customerPhone">No. Telepon/WhatsApp *</label>
-                            <input type="tel" id="customerPhone" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="customerCompany">Perusahaan/Institusi (Opsional)</label>
-                        <input type="text" id="customerCompany">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="customerAddress">Alamat Lengkap</label>
-                        <textarea id="customerAddress" required></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="customerNotes">Catatan Tambahan (Opsional)</label>
-                        <textarea id="customerNotes" placeholder="Detail tambahan tentang proyek, fitur khusus yang diinginkan, dll."></textarea>
-                    </div>
-                    
-                    <h4>Metode Pembayaran</h4>
-                    <div class="payment-methods">
-                        <label class="payment-method">
-                            <input type="radio" name="payment" value="transfer" checked>
-                            <i class="fas fa-university"></i>
-                            <span>Transfer Bank</span>
-                        </label>
-                        <label class="payment-method">
-                            <input type="radio" name="payment" value="cod">
-                            <i class="fas fa-money-bill-wave"></i>
-                            <span>Cash on Delivery (COD)</span>
-                        </label>
-                        <label class="payment-method">
-                            <input type="radio" name="payment" value="virtual">
-                            <i class="fas fa-qrcode"></i>
-                            <span>E-Wallet / QRIS</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="checkout-footer">
-                <button class="btn-confirm" id="confirmOrder">Konfirmasi Pesanan</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Success Modal -->
-    <div class="success-modal" id="successModal">
-        <div class="success-content">
-            <div class="success-icon">
-                <i class="fas fa-check-circle"></i>
-            </div>
-            <h3>Pesanan Berhasil!</h3>
-            <p>Terima kasih telah memesan produk/layanan dari CV. ZRS Digital. Tim kami akan menghubungi Anda dalam waktu 1x24 jam untuk konfirmasi dan proses selanjutnya.</p>
-            <p>Invoice dan detail pembayaran akan dikirimkan melalui email yang Anda berikan.</p>
-            <button class="btn-success" id="closeSuccess">Tutup</button>
         </div>
     </div>
 
@@ -1341,207 +1313,241 @@
             {
                 id: 1,
                 name: "Website Sekolah Premium",
-                description: "Website informasi dan akademik lengkap untuk sekolah dengan fitur: profil sekolah, berita, galeri, jadwal pelajaran, pengumuman, dan sistem login untuk guru/siswa.",
+                description: "Website informasi dan akademik lengkap untuk sekolah dengan fitur: profil sekolah, berita, galeri, jadwal pelajaran, pengumuman, sistem login untuk guru/siswa, dan raport online.",
                 image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
                 price: 7500000,
                 originalPrice: 9000000,
-                tags: ["Website", "Sekolah", "PHP", "MySQL"],
-                category: "website"
+                category: "website",
+                badge: "Best Seller",
+                features: [
+                    "Responsive design (mobile-friendly)",
+                    "Sistem manajemen konten (CMS)",
+                    "Fitur login untuk guru, siswa, dan orang tua",
+                    "Pengumuman dan agenda sekolah",
+                    "Galeri foto dan video",
+                    "Integrasi dengan platform pembelajaran"
+                ],
+                whatsappMessage: "Halo CV. ZRS Digital, saya tertarik dengan paket Website Sekolah Premium. Bisa minta informasi lebih detail?"
             },
             {
                 id: 2,
                 name: "Aplikasi Kasir Toko Retail",
-                description: "Sistem kasir dan POS untuk toko retail dengan fitur: transaksi penjualan, manajemen stok, laporan penjualan, pelanggan, dan ekspor data ke Excel.",
+                description: "Sistem kasir dan Point of Sale (POS) lengkap untuk toko retail dengan fitur: transaksi penjualan, manajemen stok otomatis, laporan penjualan harian/bulanan, manajemen pelanggan, dan ekspor data ke Excel.",
                 image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
                 price: 5000000,
                 originalPrice: 6500000,
-                tags: ["Aplikasi", "Kasir", "Laravel", "Vue.js"],
-                category: "app"
+                category: "app",
+                badge: "Diskon 20%",
+                features: [
+                    "Transaksi cepat dengan barcode scanner",
+                    "Manajemen stok real-time",
+                    "Laporan keuangan lengkap",
+                    "Multi-user dengan hak akses berbeda",
+                    "Backup data otomatis ke cloud",
+                    "Support untuk printer struk dan barcode"
+                ],
+                whatsappMessage: "Halo CV. ZRS Digital, saya ingin pesan Aplikasi Kasir Toko Retail. Bisa dikirim detailnya?"
             },
             {
                 id: 3,
                 name: "Website Pemerintahan Desa",
-                description: "Website resmi pemerintahan desa dengan fitur: profil desa, berita, pengumuman, layanan publik, galeri, dan sistem pengaduan masyarakat online.",
+                description: "Website resmi pemerintahan desa dengan fitur: profil desa, berita dan pengumuman resmi, layanan publik online, galeri kegiatan, data kependudukan, dan sistem pengaduan masyarakat.",
                 image: "https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
                 price: 6000000,
                 originalPrice: 7500000,
-                tags: ["Website", "Pemerintah", "WordPress", "PHP"],
-                category: "website"
+                category: "website",
+                badge: "Populer",
+                features: [
+                    "Tampilan profesional dan resmi",
+                    "Sistem pengaduan masyarakat online",
+                    "Data profil desa dan potensi",
+                    "Informasi layanan publik",
+                    "Galeri kegiatan desa",
+                    "Admin panel yang mudah digunakan"
+                ],
+                whatsappMessage: "Halo CV. ZRS Digital, saya dari pemerintahan desa ingin buat website resmi. Bisa konsultasi?"
             },
             {
                 id: 4,
                 name: "Aplikasi Manajemen Apotek",
-                description: "Sistem manajemen apotek dengan fitur: data obat, stok, resep dokter, penjualan, pembelian, laporan keuangan, dan kadaluarsa obat.",
+                description: "Sistem manajemen apotek komprehensif dengan fitur: data obat lengkap, manajemen stok otomatis, resep dokter digital, penjualan dan pembelian, laporan keuangan, dan notifikasi kadaluarsa obat.",
                 image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
                 price: 8500000,
                 originalPrice: 10000000,
-                tags: ["Aplikasi", "Apotek", "CodeIgniter", "MySQL"],
-                category: "app"
+                category: "app",
+                badge: "Lengkap",
+                features: [
+                    "Database obat lengkap dengan gambar",
+                    "Sistem stok otomatis dengan notifikasi",
+                    "Resep dokter digital",
+                    "Laporan penjualan dan pembelian",
+                    "Manajemen supplier dan pelanggan",
+                    "Notifikasi obat kadaluarsa"
+                ],
+                whatsappMessage: "Halo CV. ZRS Digital, apotek saya butuh sistem manajemen yang lengkap. Bisa minta penawaran?"
             },
             {
                 id: 5,
                 name: "Toko Online UKM",
-                description: "Website e-commerce untuk UKM dengan fitur: katalog produk, keranjang belanja, checkout, pembayaran online, manajemen pesanan, dan dashboard admin.",
+                description: "Website e-commerce profesional untuk UKM dengan fitur: katalog produk lengkap, keranjang belanja, checkout aman, multiple payment gateway, manajemen pesanan, dan dashboard admin yang user-friendly.",
                 image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
                 price: 4500000,
                 originalPrice: 6000000,
-                tags: ["E-commerce", "UKM", "Shopify", "JavaScript"],
-                category: "ecommerce"
+                category: "ecommerce",
+                badge: "Hemat",
+                features: [
+                    "Desain responsive dan modern",
+                    "Integrasi payment gateway (OVO, GoPay, dll)",
+                    "Manajemen produk dan kategori",
+                    "Sistem promo dan diskon",
+                    "Laporan penjualan otomatis",
+                    "Optimasi SEO untuk mesin pencari"
+                ],
+                whatsappMessage: "Halo CV. ZRS Digital, UKM saya ingin buat toko online. Bisa buatkan yang modern?"
             },
             {
                 id: 6,
                 name: "Portal Berita Online",
-                description: "Website portal berita dengan sistem manajemen konten, kategori berita, penulis, editor, komentar pembaca, dan newsletter.",
+                description: "Website portal berita profesional dengan sistem manajemen konten yang powerful, kategori berita, penulis dan editor, komentar pembaca, newsletter, dan integrasi media sosial.",
                 image: "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
                 price: 5500000,
                 originalPrice: 7000000,
-                tags: ["Website", "Berita", "WordPress", "PHP"],
-                category: "website"
+                category: "website",
+                badge: "Update",
+                features: [
+                    "Sistem manajemen konten yang mudah",
+                    "Multi-kategori dan tag berita",
+                    "Manajemen user dengan role berbeda",
+                    "Sistem komentar dan rating",
+                    "Newsletter subscription",
+                    "Analytics untuk tracking pengunjung"
+                ],
+                whatsappMessage: "Halo CV. ZRS Digital, saya ingin buat portal berita. Bisa minta demo?"
             },
             {
                 id: 7,
                 name: "Website Organisasi/NGO",
-                description: "Website untuk organisasi atau NGO dengan fitur: profil, program kegiatan, anggota, donasi online, galeri, dan blog berita.",
+                description: "Website profesional untuk organisasi atau NGO dengan fitur: profil organisasi, program dan kegiatan, keanggotaan, donasi online, galeri, blog berita, dan sistem volunteer.",
                 image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
                 price: 4000000,
                 originalPrice: 5500000,
-                tags: ["Website", "Organisasi", "HTML/CSS", "JavaScript"],
-                category: "website"
+                category: "website",
+                badge: "Custom",
+                features: [
+                    "Profil organisasi yang menarik",
+                    "Sistem donasi online yang aman",
+                    "Manajemen anggota dan volunteer",
+                    "Galeri kegiatan dan dokumentasi",
+                    "Blog untuk update kegiatan",
+                    "Integrasi dengan media sosial"
+                ],
+                whatsappMessage: "Halo CV. ZRS Digital, organisasi saya perlu website yang profesional. Bisa konsultasi?"
             },
             {
                 id: 8,
                 name: "Website Masjid Digital",
-                description: "Website untuk masjid dengan fitur: jadwal sholat, pengumuman, kalender kegiatan, donasi online, kajian, dan live streaming.",
+                description: "Website untuk masjid dengan fitur: jadwal sholat otomatis, pengumuman kegiatan, kalender islami, donasi online, kajian online, live streaming, dan informasi seputar masjid.",
                 image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
                 price: 3500000,
                 originalPrice: 5000000,
-                tags: ["Website", "Masjid", "PHP", "MySQL"],
-                category: "website"
+                category: "website",
+                badge: "Spesial",
+                features: [
+                    "Jadwal sholat otomatis berdasarkan lokasi",
+                    "Sistem donasi online yang transparan",
+                    "Kalender islami dengan tanggal hijriyah",
+                    "Live streaming untuk kajian",
+                    "Pengumuman kegiatan masjid",
+                    "Manajeman keuangan dan donasi"
+                ],
+                whatsappMessage: "Halo CV. ZRS Digital, masjid kami ingin buat website digital. Bisa minta penawaran?"
             }
         ];
 
-        // Data Cart
-        let cart = JSON.parse(localStorage.getItem('zrs_cart')) || [];
-        
         // DOM Elements
         const productsGrid = document.getElementById('productsGrid');
-        const cartButton = document.getElementById('cartButton');
-        const cartCount = document.getElementById('cartCount');
-        const cartModal = document.getElementById('cartModal');
-        const closeCart = document.getElementById('closeCart');
-        const cartBody = document.getElementById('cartBody');
-        const cartTotal = document.getElementById('cartTotal');
-        const continueShopping = document.getElementById('continueShopping');
-        const checkoutButton = document.getElementById('checkoutButton');
-        const checkoutModal = document.getElementById('checkoutModal');
-        const closeCheckout = document.getElementById('closeCheckout');
-        const checkoutSummary = document.getElementById('checkoutSummary');
-        const checkoutTotal = document.getElementById('checkoutTotal');
-        const confirmOrder = document.getElementById('confirmOrder');
-        const successModal = document.getElementById('successModal');
-        const closeSuccess = document.getElementById('closeSuccess');
-        const mobileMenu = document.getElementById('mobileMenu');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navMenu = document.getElementById('navMenu');
+        const header = document.getElementById('header');
+        const contactForm = document.getElementById('contactForm');
+        const productModal = document.getElementById('productModal');
+        const closeModal = document.getElementById('closeModal');
+        const modalBody = document.getElementById('modalBody');
+
+        // WhatsApp Number
+        const whatsappNumber = "6285210212740";
+
+        // Format currency to IDR
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                minimumFractionDigits: 0
+            }).format(amount);
+        }
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
             renderProducts();
-            updateCartCount();
+            setupEventListeners();
+            initScrollAnimations();
             
-            // Mobile menu toggle
-            mobileMenu.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-                mobileMenu.innerHTML = navMenu.classList.contains('active') 
-                    ? '<i class="fas fa-times"></i>' 
-                    : '<i class="fas fa-bars"></i>';
-            });
-            
-            // Cart button click
-            cartButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                openCartModal();
-            });
-            
-            // Close cart modal
-            closeCart.addEventListener('click', closeCartModal);
-            continueShopping.addEventListener('click', closeCartModal);
-            
-            // Checkout button click
-            checkoutButton.addEventListener('click', openCheckoutModal);
-            
-            // Close checkout modal
-            closeCheckout.addEventListener('click', closeCheckoutModal);
-            
-            // Confirm order button
-            confirmOrder.addEventListener('click', confirmOrderHandler);
-            
-            // Close success modal
-            closeSuccess.addEventListener('click', closeSuccessModal);
-            
-            // Close modals when clicking outside
-            window.addEventListener('click', (e) => {
-                if (e.target === cartModal) closeCartModal();
-                if (e.target === checkoutModal) closeCheckoutModal();
-                if (e.target === successModal) closeSuccessModal();
-            });
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        e.preventDefault();
-                        navMenu.classList.remove('active');
-                        mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
-                        
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
             });
         });
 
         // Render products to the page
-        function renderProducts() {
+        function renderProducts(filter = 'all') {
             productsGrid.innerHTML = '';
             
-            products.forEach(product => {
+            const filteredProducts = filter === 'all' 
+                ? products 
+                : products.filter(product => product.category === filter);
+            
+            filteredProducts.forEach(product => {
                 const productCard = document.createElement('div');
-                productCard.className = 'product-card';
+                productCard.className = 'product-card animate-on-scroll';
                 productCard.setAttribute('data-category', product.category);
                 
-                // Format price
-                const formattedPrice = formatCurrency(product.price);
-                const formattedOriginalPrice = formatCurrency(product.originalPrice);
-                
-                // Create tags HTML
-                const tagsHTML = product.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+                // Create product features list
+                const featuresList = product.features.map(feature => 
+                    `<li><i class="fas fa-check"></i> ${feature}</li>`
+                ).join('');
                 
                 productCard.innerHTML = `
-                    <div class="product-img">
+                    ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
+                    <div class="product-image">
                         <img src="${product.image}" alt="${product.name}">
                     </div>
-                    <div class="product-info">
-                        <h3>${product.name}</h3>
-                        <p>${product.description}</p>
-                        <div class="product-tags">
-                            ${tagsHTML}
-                        </div>
+                    <div class="product-content">
+                        <span class="product-category">${product.category.toUpperCase()}</span>
+                        <h3 class="product-title">${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        
+                        <ul class="product-features">
+                            ${featuresList}
+                        </ul>
+                        
                         <div class="product-price">
-                            ${formattedPrice}
-                            ${product.originalPrice ? `<span>${formattedOriginalPrice}</span>` : ''}
+                            <div class="price">
+                                ${formatCurrency(product.price)}
+                                ${product.originalPrice ? `<span>${formatCurrency(product.originalPrice)}</span>` : ''}
+                            </div>
                         </div>
+                        
                         <div class="product-actions">
+                            <button class="btn-whatsapp" onclick="orderViaWhatsApp(${product.id})">
+                                <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                            </button>
                             <button class="btn-detail" onclick="showProductDetail(${product.id})">
                                 <i class="fas fa-info-circle"></i> Detail
-                            </button>
-                            <button class="btn-buy" onclick="addToCart(${product.id})">
-                                <i class="fas fa-cart-plus"></i> Pesan
                             </button>
                         </div>
                     </div>
@@ -1549,311 +1555,179 @@
                 
                 productsGrid.appendChild(productCard);
             });
-        }
-
-        // Add product to cart
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
             
-            // Check if product already in cart
-            const existingItemIndex = cart.findIndex(item => item.id === productId);
-            
-            if (existingItemIndex !== -1) {
-                // Increase quantity
-                cart[existingItemIndex].quantity += 1;
-            } else {
-                // Add new item to cart
-                cart.push({
-                    id: product.id,
-                    name: product.name,
-                    price: product.price,
-                    image: product.image,
-                    quantity: 1
-                });
-            }
-            
-            // Save to localStorage
-            localStorage.setItem('zrs_cart', JSON.stringify(cart));
-            
-            // Update cart count
-            updateCartCount();
-            
-            // Show confirmation
-            showNotification(`"${product.name}" telah ditambahkan ke keranjang`);
-            
-            // Open cart modal
-            openCartModal();
-        }
-
-        // Remove item from cart
-        function removeFromCart(productId) {
-            cart = cart.filter(item => item.id !== productId);
-            localStorage.setItem('zrs_cart', JSON.stringify(cart));
-            updateCartCount();
-            renderCart();
-            
-            if (cart.length === 0) {
-                closeCartModal();
-            }
-        }
-
-        // Update item quantity in cart
-        function updateQuantity(productId, newQuantity) {
-            if (newQuantity < 1) {
-                removeFromCart(productId);
-                return;
-            }
-            
-            const itemIndex = cart.findIndex(item => item.id === productId);
-            if (itemIndex !== -1) {
-                cart[itemIndex].quantity = newQuantity;
-                localStorage.setItem('zrs_cart', JSON.stringify(cart));
-                updateCartCount();
-                renderCart();
-            }
-        }
-
-        // Render cart items
-        function renderCart() {
-            cartBody.innerHTML = '';
-            
-            if (cart.length === 0) {
-                cartBody.innerHTML = `
-                    <div class="cart-empty">
-                        <i class="fas fa-shopping-cart"></i>
-                        <h4>Keranjang Belanja Kosong</h4>
-                        <p>Silakan pilih produk/layanan yang Anda butuhkan</p>
-                    </div>
-                `;
-                cartTotal.textContent = 'Rp 0';
-                return;
-            }
-            
-            let total = 0;
-            const cartItemsContainer = document.createElement('div');
-            cartItemsContainer.className = 'cart-items';
-            
-            cart.forEach(item => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-                
-                const cartItem = document.createElement('div');
-                cartItem.className = 'cart-item';
-                cartItem.innerHTML = `
-                    <div class="cart-item-img">
-                        <img src="${item.image}" alt="${item.name}">
-                    </div>
-                    <div class="cart-item-details">
-                        <h4>${item.name}</h4>
-                        <div class="cart-item-price">${formatCurrency(item.price)}</div>
-                        <div class="cart-item-quantity">
-                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, ${item.quantity - 1})">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <span class="quantity">${item.quantity}</span>
-                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, ${item.quantity + 1})">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <button class="cart-item-remove" onclick="removeFromCart(${item.id})">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                `;
-                
-                cartItemsContainer.appendChild(cartItem);
-            });
-            
-            cartBody.appendChild(cartItemsContainer);
-            cartTotal.textContent = formatCurrency(total);
-        }
-
-        // Open cart modal
-        function openCartModal() {
-            renderCart();
-            cartModal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-
-        // Close cart modal
-        function closeCartModal() {
-            cartModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Open checkout modal
-        function openCheckoutModal() {
-            if (cart.length === 0) {
-                showNotification('Keranjang belanja kosong. Silakan tambah produk terlebih dahulu.');
-                return;
-            }
-            
-            closeCartModal();
-            
-            // Render checkout summary
-            let summaryHTML = '';
-            let total = 0;
-            
-            cart.forEach(item => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-                
-                summaryHTML += `
-                    <div class="checkout-item">
-                        <span>${item.name} (${item.quantity}x)</span>
-                        <span>${formatCurrency(itemTotal)}</span>
-                    </div>
-                `;
-            });
-            
-            checkoutSummary.innerHTML = summaryHTML;
-            checkoutTotal.textContent = formatCurrency(total);
-            
-            // Reset form
-            document.getElementById('customerName').value = '';
-            document.getElementById('customerEmail').value = '';
-            document.getElementById('customerPhone').value = '';
-            document.getElementById('customerCompany').value = '';
-            document.getElementById('customerAddress').value = '';
-            document.getElementById('customerNotes').value = '';
-            
-            checkoutModal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-
-        // Close checkout modal
-        function closeCheckoutModal() {
-            checkoutModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Confirm order handler
-        function confirmOrderHandler() {
-            // Get form values
-            const name = document.getElementById('customerName').value.trim();
-            const email = document.getElementById('customerEmail').value.trim();
-            const phone = document.getElementById('customerPhone').value.trim();
-            const company = document.getElementById('customerCompany').value.trim();
-            const address = document.getElementById('customerAddress').value.trim();
-            const notes = document.getElementById('customerNotes').value.trim();
-            const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
-            
-            // Validate form
-            if (!name || !email || !phone || !address) {
-                showNotification('Harap lengkapi semua field yang wajib diisi.');
-                return;
-            }
-            
-            // Create order object
-            const order = {
-                customer: { name, email, phone, company, address, notes, paymentMethod },
-                items: [...cart],
-                total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
-                date: new Date().toISOString(),
-                orderId: 'ZRS-' + Date.now()
-            };
-            
-            // In a real application, you would send this order to a server
-            // For this demo, we'll just save it to localStorage and show success message
-            saveOrder(order);
-            
-            // Clear cart
-            cart = [];
-            localStorage.setItem('zrs_cart', JSON.stringify(cart));
-            updateCartCount();
-            
-            // Close checkout modal and show success modal
-            closeCheckoutModal();
-            successModal.style.display = 'flex';
-        }
-
-        // Close success modal
-        function closeSuccessModal() {
-            successModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Save order to localStorage (simulate saving to server)
-        function saveOrder(order) {
-            let orders = JSON.parse(localStorage.getItem('zrs_orders')) || [];
-            orders.push(order);
-            localStorage.setItem('zrs_orders', JSON.stringify(orders));
-            
-            // In a real application, you would send this to your backend server
-            console.log('Order saved:', order);
-        }
-
-        // Update cart count in header
-        function updateCartCount() {
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            cartCount.textContent = totalItems;
-        }
-
-        // Format currency to IDR
-        function formatCurrency(amount) {
-            return 'Rp ' + amount.toLocaleString('id-ID');
-        }
-
-        // Show notification
-        function showNotification(message) {
-            // Create notification element
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 100px;
-                right: 20px;
-                background-color: var(--success);
-                color: white;
-                padding: 15px 20px;
-                border-radius: 5px;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-                z-index: 5000;
-                font-weight: 500;
-                max-width: 300px;
-                animation: slideIn 0.3s ease;
-            `;
-            
-            notification.textContent = message;
-            document.body.appendChild(notification);
-            
-            // Remove after 3 seconds
+            // Trigger animation for newly added elements
             setTimeout(() => {
-                notification.style.animation = 'slideOut 0.3s ease';
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 300);
-            }, 3000);
-            
-            // Add CSS for animations
-            if (!document.querySelector('#notification-styles')) {
-                const style = document.createElement('style');
-                style.id = 'notification-styles';
-                style.textContent = `
-                    @keyframes slideIn {
-                        from { transform: translateX(100%); opacity: 0; }
-                        to { transform: translateX(0); opacity: 1; }
+                document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                    if (isElementInViewport(el)) {
+                        el.classList.add('visible');
                     }
-                    @keyframes slideOut {
-                        from { transform: translateX(0); opacity: 1; }
-                        to { transform: translateX(100%); opacity: 0; }
-                    }
-                `;
-                document.head.appendChild(style);
-            }
+                });
+            }, 100);
         }
 
-        // Show product detail (for demo, just an alert)
+        // Setup event listeners
+        function setupEventListeners() {
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Filter buttons
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Filter products
+                    const filter = button.getAttribute('data-filter');
+                    renderProducts(filter);
+                });
+            });
+            
+            // Contact form submission
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const email = document.getElementById('email').value;
+                const service = document.getElementById('service').value;
+                const message = document.getElementById('message').value;
+                
+                // Create WhatsApp message
+                const whatsappMessage = `Halo CV. ZRS Digital,%0A%0ASaya ${name} ingin konsultasi mengenai pembuatan aplikasi/website.%0A%0ADetail:%0A- No. HP/WA: ${phone}%0A${email ? `- Email: ${email}%0A` : ''}${service ? `- Layanan: ${service}%0A` : ''}%0APesan:%0A${message}%0A%0ATerima kasih.`;
+                
+                // Open WhatsApp
+                window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Show success message
+                alert('Terima kasih! Anda akan diarahkan ke WhatsApp untuk melanjutkan konsultasi.');
+            });
+            
+            // Close modal
+            closeModal.addEventListener('click', () => {
+                productModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', (e) => {
+                if (e.target === productModal) {
+                    productModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('#navMenu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+        }
+
+        // Initialize scroll animations
+        function initScrollAnimations() {
+            // Check if elements are in viewport on scroll
+            window.addEventListener('scroll', () => {
+                document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                    if (isElementInViewport(el)) {
+                        el.classList.add('visible');
+                    }
+                });
+            });
+            
+            // Initial check
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                if (isElementInViewport(el)) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+
+        // Check if element is in viewport
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.9 &&
+                rect.bottom >= 0
+            );
+        }
+
+        // Order via WhatsApp
+        function orderViaWhatsApp(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            const message = encodeURIComponent(product.whatsappMessage);
+            window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+        }
+
+        // Show product detail modal
         function showProductDetail(productId) {
             const product = products.find(p => p.id === productId);
-            if (product) {
-                alert(`${product.name}\n\n${product.description}\n\nHarga: ${formatCurrency(product.price)}${product.originalPrice ? ` (Diskon dari ${formatCurrency(product.originalPrice)})` : ''}\n\nTekan "Pesan" untuk menambahkan ke keranjang.`);
-            }
+            if (!product) return;
+            
+            // Create features list
+            const featuresList = product.features.map(feature => 
+                `<li><i class="fas fa-check-circle"></i> ${feature}</li>`
+            ).join('');
+            
+            // Create modal content
+            modalBody.innerHTML = `
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div>
+                        <img src="${product.image}" alt="${product.name}" style="width: 100%; border-radius: var(--radius);">
+                    </div>
+                    <div>
+                        <h2 style="margin-bottom: 10px; color: var(--dark);">${product.name}</h2>
+                        <p style="color: var(--gray); margin-bottom: 20px;">${product.description}</p>
+                        
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                            <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">
+                                ${formatCurrency(product.price)}
+                            </div>
+                            ${product.originalPrice ? 
+                                `<div style="color: var(--gray); text-decoration: line-through;">
+                                    ${formatCurrency(product.originalPrice)}
+                                </div>` 
+                                : ''
+                            }
+                        </div>
+                        
+                        <h3 style="margin-bottom: 15px; color: var(--dark);">Fitur Utama:</h3>
+                        <ul style="list-style: none; margin-bottom: 30px;">
+                            ${featuresList}
+                        </ul>
+                        
+                        <button onclick="orderViaWhatsApp(${product.id})" class="btn-whatsapp" style="width: 100%; padding: 15px; font-size: 1.1rem;">
+                            <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
+                        </button>
+                        
+                        <p style="margin-top: 15px; font-size: 0.9rem; color: var(--gray); text-align: center;">
+                            Konsultasi gratis via WhatsApp 0852-1021-2740
+                        </p>
+                    </div>
+                </div>
+            `;
+            
+            // Show modal
+            productModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
         }
 
-        // Expose functions to global scope for onclick attributes
-        window.addToCart = addToCart;
-        window.removeFromCart = removeFromCart;
-        window.updateQuantity = updateQuantity;
+        // Make functions available globally
+        window.orderViaWhatsApp = orderViaWhatsApp;
         window.showProductDetail = showProductDetail;
     </script>
 </body>
