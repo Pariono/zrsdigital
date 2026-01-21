@@ -481,6 +481,7 @@
         .product-image {
             height: 200px;
             overflow: hidden;
+            position: relative;
         }
         
         .product-image img {
@@ -488,6 +489,17 @@
             height: 100%;
             object-fit: cover;
             transition: var(--transition);
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
         }
         
         .product-card:hover .product-image img {
@@ -898,7 +910,7 @@
             font-size: 0.9rem;
         }
         
-        /* Order Modal - PERBAIKAN WARNA */
+        /* Order Modal */
         .order-modal {
             display: none;
             position: fixed;
@@ -1212,46 +1224,6 @@
             margin-left: 10px;
         }
         
-        /* Product Gallery */
-        .product-gallery {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-            overflow-x: auto;
-            padding-bottom: 10px;
-        }
-        
-        .product-gallery img {
-            width: 80px;
-            height: 60px;
-            object-fit: cover;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: var(--transition);
-            border: 2px solid transparent;
-        }
-        
-        .product-gallery img:hover, .product-gallery img.active {
-            border-color: var(--primary);
-        }
-        
-        /* Category Colors */
-        .category-website {
-            color: #3b82f6;
-        }
-        
-        .category-app {
-            color: #8b5cf6;
-        }
-        
-        .category-ecommerce {
-            color: #10b981;
-        }
-        
-        .category-custom {
-            color: #f59e0b;
-        }
-        
         /* Scrollbar Styling */
         ::-webkit-scrollbar {
             width: 8px;
@@ -1319,7 +1291,7 @@
             <div class="hero-text">
                 <span class="badge animate__animated animate__pulse animate__infinite">🔥 PROMO TERBATAS</span>
                 <h1 class="animate__animated animate__fadeInUp">Website & Aplikasi <span>Murah & Berkualitas</span></h1>
-                <p class="animate__animated animate__fadeInUp animate__delay-1s">CV. ZRS Digital menghadirkan solusi website dan aplikasi profesional dengan harga terjangkau. Semua paket di bawah <strong>Rp 2 Juta</strong>!</p>
+                <p class="animate__animated animate__fadeInUp animate__delay-1s">CV. ZRS Digital menghadirkan solusi website dan aplikasi profesional dengan harga terjangkau. <strong>Semua paket di bawah Rp 2 Juta!</strong> Termasuk website sekolah, wisata, dan aplikasi SPP.</p>
                 
                 <div class="hero-cta">
                     <a href="#products" class="btn-primary animate__animated animate__fadeInUp animate__delay-2s">
@@ -1537,10 +1509,10 @@
                 <div class="footer-column">
                     <h3>Paket Website</h3>
                     <a href="#products">Website Sekolah (Rp 850K)</a>
+                    <a href="#products">Website Wisata (Rp 1.2JT)</a>
                     <a href="#products">Website Organisasi (Rp 750K)</a>
                     <a href="#products">Website Pemerintahan (Rp 1.2JT)</a>
                     <a href="#products">Website Berita (Rp 950K)</a>
-                    <a href="#products">Website Pendidikan (Rp 800K)</a>
                 </div>
                 
                 <div class="footer-column">
@@ -1630,7 +1602,7 @@
     </div>
 
     <script>
-        // Data Produk dengan harga di bawah 2 juta
+        // Data Produk dengan harga di bawah 2 juta (SISTEM GAMBAR DIPERBAIKI)
         const products = {
             "website": {
                 title: "Paket Website (Rp 500.000 - Rp 1.500.000)",
@@ -1639,7 +1611,7 @@
                     {
                         id: 1,
                         name: "Website Sekolah",
-                        description: "Website sekolah dengan profil, berita, galeri, dan pengumuman. Cocok untuk SD, SMP, SMA, atau pondok pesantren.",
+                        description: "Website sekolah lengkap dengan profil sekolah, berita, galeri, pengumuman, dan sistem informasi siswa. Cocok untuk SD, SMP, SMA, atau pondok pesantren.",
                         image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
                         price: 850000,
                         originalPrice: 1200000,
@@ -1650,13 +1622,32 @@
                             "Sistem berita & pengumuman",
                             "Galeri foto & video kegiatan",
                             "Form kontak & lokasi peta",
-                            "Admin panel mudah digunakan"
+                            "Admin panel mudah digunakan",
+                            "Optimasi untuk gambar cepat"
+                        ]
+                    },
+                    {
+                        id: 15,
+                        name: "Website Wisata & Pariwisata",
+                        description: "Website untuk promosi wisata, destinasi pariwisata, atau dinas pariwisata dengan fitur pemesanan, galeri, dan peta lokasi.",
+                        image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                        price: 1200000,
+                        originalPrice: 1700000,
+                        category: "website",
+                        badge: "Wisata",
+                        features: [
+                            "Promosi destinasi wisata",
+                            "Galeri foto & video wisata",
+                            "Peta lokasi wisata interaktif",
+                            "Form pemesanan paket wisata",
+                            "Integrasi media sosial",
+                            "Optimasi untuk gambar cepat"
                         ]
                     },
                     {
                         id: 2,
                         name: "Website Organisasi",
-                        description: "Website untuk organisasi, yayasan, atau komunitas dengan fitur keanggotaan dan kegiatan.",
+                        description: "Website untuk organisasi, yayasan, atau komunitas dengan fitur keanggotaan, kegiatan, dan dokumentasi.",
                         image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
                         price: 750000,
                         originalPrice: 1000000,
@@ -1673,7 +1664,7 @@
                     {
                         id: 3,
                         name: "Website Pemerintahan",
-                        description: "Website resmi untuk desa, kelurahan, atau instansi pemerintah dengan tampilan formal dan informatif.",
+                        description: "Website resmi untuk desa, kelurahan, atau instansi pemerintah dengan tampilan formal, informatif, dan layanan publik online.",
                         image: "https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
                         price: 1200000,
                         originalPrice: 1600000,
@@ -1690,7 +1681,7 @@
                     {
                         id: 4,
                         name: "Website Berita",
-                        description: "Portal berita online dengan sistem manajemen konten untuk publikasi artikel berita.",
+                        description: "Portal berita online dengan sistem manajemen konten untuk publikasi artikel berita yang cepat dan terstruktur.",
                         image: "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
                         price: 950000,
                         originalPrice: 1300000,
@@ -1707,7 +1698,7 @@
                     {
                         id: 5,
                         name: "Website Pendidikan",
-                        description: "Website untuk lembaga pendidikan seperti kursus, bimbingan belajar, atau training center.",
+                        description: "Website untuk lembaga pendidikan seperti kursus, bimbingan belajar, atau training center dengan sistem pendaftaran online.",
                         image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
                         price: 800000,
                         originalPrice: 1100000,
@@ -1716,26 +1707,9 @@
                         features: [
                             "Profil lembaga pendidikan",
                             "Program & kurikulum",
-                            "Daftar pengajar",
+                            "Daftar pengajar berkualifikasi",
                             "Pendaftaran online",
                             "Testimoni siswa"
-                        ]
-                    },
-                    {
-                        id: 6,
-                        name: "Website Personal/Portfolio",
-                        description: "Website personal untuk portofolio pekerjaan, CV online, atau blog pribadi.",
-                        image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                        price: 600000,
-                        originalPrice: 900000,
-                        category: "website",
-                        badge: "Personal",
-                        features: [
-                            "Portofolio pekerjaan",
-                            "Blog pribadi",
-                            "CV & pengalaman kerja",
-                            "Form kontak personal",
-                            "Integrasi media sosial"
                         ]
                     }
                 ]
@@ -1745,9 +1719,27 @@
                 description: "Aplikasi berbasis web dan mobile untuk kebutuhan bisnis yang lebih kompleks",
                 items: [
                     {
+                        id: 10,
+                        name: "Aplikasi SPP Sekolah",
+                        description: "Sistem pembayaran SPP dan administrasi keuangan sekolah dengan pembayaran online, tagihan otomatis, dan notifikasi untuk orang tua.",
+                        image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                        price: 1600000,
+                        originalPrice: 2200000,
+                        category: "app",
+                        badge: "Sekolah",
+                        features: [
+                            "Manajemen pembayaran SPP lengkap",
+                            "Tagihan otomatis per bulan",
+                            "Pembayaran via transfer/QRIS",
+                            "Laporan keuangan lengkap",
+                            "Notifikasi untuk orang tua",
+                            "Integrasi dengan website sekolah"
+                        ]
+                    },
+                    {
                         id: 7,
                         name: "Aplikasi Kasir & POS",
-                        description: "Sistem kasir dan point of sale lengkap untuk toko, restoran, atau retail dengan laporan real-time.",
+                        description: "Sistem kasir dan point of sale lengkap untuk toko, restoran, atau retail dengan laporan real-time dan manajemen stok.",
                         image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
                         price: 1800000,
                         originalPrice: 2500000,
@@ -1764,24 +1756,24 @@
                     {
                         id: 8,
                         name: "Aplikasi Inventaris",
-                        description: "Sistem manajemen inventaris untuk monitoring stok barang, pemasukan, dan pengeluaran.",
-                        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=60",
+                        description: "Sistem manajemen inventaris untuk monitoring stok barang, pemasukan, dan pengeluaran dengan notifikasi stok menipis.",
+                        image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
                         price: 1500000,
                         originalPrice: 2000000,
                         category: "app",
                         badge: "Efisien",
                         features: [
-                            "Tracking stok barang",
+                            "Tracking stok barang real-time",
                             "Pencatatan pemasukan/pengeluaran",
                             "Notifikasi stok menipis",
-                            "Laporan inventory",
+                            "Laporan inventory lengkap",
                             "Multi-lokasi gudang"
                         ]
                     },
                     {
                         id: 9,
                         name: "Aplikasi Perpustakaan",
-                        description: "Sistem manajemen perpustakaan digital dengan katalog buku, peminjaman, dan pengembalian.",
+                        description: "Sistem manajemen perpustakaan digital dengan katalog buku, peminjaman online, pengembalian, dan statistik.",
                         image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
                         price: 1700000,
                         originalPrice: 2300000,
@@ -1796,26 +1788,9 @@
                         ]
                     },
                     {
-                        id: 10,
-                        name: "Aplikasi SPP Sekolah",
-                        description: "Sistem pembayaran SPP dan administrasi keuangan sekolah dengan pembayaran online.",
-                        image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=60",
-                        price: 1600000,
-                        originalPrice: 2200000,
-                        category: "app",
-                        badge: "Sekolah",
-                        features: [
-                            "Manajemen pembayaran SPP",
-                            "Tagihan otomatis per bulan",
-                            "Pembayaran via transfer/QRIS",
-                            "Laporan keuangan lengkap",
-                            "Notifikasi untuk orang tua"
-                        ]
-                    },
-                    {
                         id: 11,
                         name: "Aplikasi Apotek",
-                        description: "Sistem manajemen apotek dengan data obat, resep dokter, dan penjualan.",
+                        description: "Sistem manajemen apotek dengan data obat, resep dokter, penjualan, dan monitoring tanggal kadaluarsa.",
                         image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
                         price: 1900000,
                         originalPrice: 2600000,
@@ -1832,17 +1807,17 @@
                     {
                         id: 12,
                         name: "Aplikasi Koperasi",
-                        description: "Sistem manajemen koperasi simpan pinjam dengan pembukuan dan laporan keuangan.",
-                        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=40",
+                        description: "Sistem manajemen koperasi simpan pinjam dengan pembukuan otomatis, bunga, bagi hasil, dan laporan keuangan.",
+                        image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
                         price: 1750000,
                         originalPrice: 2400000,
                         category: "app",
                         badge: "Koperasi",
                         features: [
                             "Simpanan & pinjaman anggota",
-                            "Pembukuan keuangan",
+                            "Pembukuan keuangan otomatis",
                             "Bunga & bagi hasil",
-                            "Laporan keuangan",
+                            "Laporan keuangan lengkap",
                             "Manajemen anggota"
                         ]
                     }
@@ -1855,7 +1830,7 @@
                     {
                         id: 13,
                         name: "Toko Online UKM",
-                        description: "Website toko online untuk UKM dengan katalog produk, keranjang belanja, dan checkout.",
+                        description: "Website toko online untuk UKM dengan katalog produk, keranjang belanja, checkout, dan pembayaran online.",
                         image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
                         price: 1400000,
                         originalPrice: 1900000,
@@ -1872,8 +1847,8 @@
                     {
                         id: 14,
                         name: "Marketplace Mini",
-                        description: "Platform marketplace dengan multi-vendor untuk menjual produk dari berbagai penjual.",
-                        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=60",
+                        description: "Platform marketplace dengan multi-vendor untuk menjual produk dari berbagai penjual dengan sistem komisi.",
+                        image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
                         price: 1950000,
                         originalPrice: 2800000,
                         category: "ecommerce",
@@ -1937,7 +1912,39 @@
                     header.classList.remove('scrolled');
                 }
             });
+            
+            // Check and fix broken images
+            checkAndFixImages();
         });
+
+        // Check and fix broken images
+        function checkAndFixImages() {
+            document.querySelectorAll('img').forEach(img => {
+                img.onerror = function() {
+                    console.log('Gambar gagal dimuat:', this.src);
+                    // Replace with placeholder
+                    const placeholder = document.createElement('div');
+                    placeholder.className = 'image-placeholder';
+                    placeholder.innerHTML = `<i class="fas fa-${getCategoryIconFromImg(img)}"></i>`;
+                    
+                    const parent = img.parentNode;
+                    if (parent.classList.contains('product-image')) {
+                        parent.innerHTML = '';
+                        parent.appendChild(placeholder);
+                    }
+                };
+            });
+        }
+        
+        function getCategoryIconFromImg(img) {
+            // Determine icon based on context
+            const productCard = img.closest('.product-card');
+            if (productCard) {
+                const category = productCard.getAttribute('data-category');
+                return getCategoryIcon(category);
+            }
+            return 'image';
+        }
 
         // Render category content
         function renderCategory(category) {
@@ -2013,6 +2020,9 @@
                     }
                 });
             }, 100);
+            
+            // Check images after rendering
+            setTimeout(checkAndFixImages, 500);
         }
 
         // Create product card element
@@ -2026,13 +2036,19 @@
                 `<li><i class="fas fa-check"></i> ${feature}</li>`
             ).join('');
             
+            // Fallback for image if URL is broken
+            const imageHTML = `
+                <div class="product-image">
+                    <img src="${product.image}" alt="${product.name}" 
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221000%22 height=%22200%22 viewBox=%220 0 1000 200%22%3E%3Cdefs%3E%3ClinearGradient id=%22grad%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22%3E%3Cstop offset=%220%25%22 stop-color=%22%232563eb%22/%3E%3Cstop offset=%22100%25%22 stop-color=%22%237c3aed%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%221000%22 height=%22200%22 fill=%22url(%23grad)%22/%3E%3Ctext x=%22500%22 y=%22100%22 font-family=%22Arial%22 font-size=%2224%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3E${encodeURIComponent(product.name)}%3C/text%3E%3C/svg%3E';">
+                </div>
+            `;
+            
             productCard.innerHTML = `
                 ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
-                <div class="product-image">
-                    <img src="${product.image}" alt="${product.name}">
-                </div>
+                ${imageHTML}
                 <div class="product-content">
-                    <span class="product-category category-${product.category}">
+                    <span class="product-category">
                         <i class="fas fa-${getCategoryIcon(product.category)}"></i> ${product.category.toUpperCase()}
                     </span>
                     <h3 class="product-title">${product.name}</h3>
@@ -2288,4 +2304,4 @@ Klik "Pesan Sekarang" untuk memesan produk ini.`;
         window.showProductDetail = showProductDetail;
     </script>
 </body>
-</html> 
+</html>
