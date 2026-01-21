@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV. ZRS Digital - Solusi Website & Aplikasi Profesional</title>
+    <title>CV. ZRS Digital - Paket Website & Aplikasi Profesional</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -386,29 +386,59 @@
             background-color: white;
         }
         
-        .products-filter {
+        .category-tabs {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 15px;
             margin-bottom: 40px;
         }
         
-        .filter-btn {
-            padding: 10px 20px;
+        .category-tab {
+            padding: 12px 24px;
             background-color: white;
-            border: 1px solid var(--gray-light);
+            border: 2px solid var(--gray-light);
             border-radius: 50px;
             color: var(--gray);
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
         }
         
-        .filter-btn.active, .filter-btn:hover {
+        .category-tab.active, .category-tab:hover {
             background: linear-gradient(to right, var(--primary), var(--secondary));
             color: white;
             border-color: transparent;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .category-tab i {
+            font-size: 1.1rem;
+        }
+        
+        .price-range {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #f8fafc;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .price-range h3 {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+        
+        .price-range p {
+            color: var(--gray);
+            font-size: 0.95rem;
         }
         
         .products-grid {
@@ -425,6 +455,9 @@
             transition: var(--transition);
             position: relative;
             border: 1px solid var(--gray-light);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         .product-card:hover {
@@ -446,7 +479,7 @@
         }
         
         .product-image {
-            height: 220px;
+            height: 200px;
             overflow: hidden;
         }
         
@@ -463,6 +496,9 @@
         
         .product-content {
             padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .product-category {
@@ -477,6 +513,7 @@
             font-size: 1.3rem;
             margin-bottom: 10px;
             color: var(--dark);
+            line-height: 1.3;
         }
         
         .product-description {
@@ -484,6 +521,7 @@
             font-size: 0.95rem;
             margin-bottom: 20px;
             line-height: 1.5;
+            flex-grow: 1;
         }
         
         .product-features {
@@ -502,6 +540,7 @@
         
         .product-features li i {
             color: var(--success);
+            font-size: 0.8rem;
         }
         
         .product-price {
@@ -529,6 +568,7 @@
         .product-actions {
             display: flex;
             gap: 10px;
+            margin-top: auto;
         }
         
         .btn-whatsapp, .btn-detail {
@@ -878,6 +918,9 @@
             border-radius: var(--radius);
             max-width: 500px;
             width: 100%;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
             animation: modalFadeIn 0.3s ease;
             position: relative;
         }
@@ -895,6 +938,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-shrink: 0;
         }
         
         .order-modal-header h3 {
@@ -913,6 +957,8 @@
         
         .order-modal-body {
             padding: 30px;
+            overflow-y: auto;
+            flex-grow: 1;
         }
         
         .order-summary {
@@ -975,22 +1021,36 @@
             color: var(--dark);
         }
         
-        .order-form input, .order-form select {
+        .order-form input, .order-form select, .order-form textarea {
             width: 100%;
             padding: 12px 15px;
             border: 1px solid var(--gray-light);
             border-radius: var(--radius-sm);
             font-family: 'Poppins', sans-serif;
             transition: var(--transition);
+            font-size: 0.95rem;
         }
         
-        .order-form input:focus, .order-form select:focus {
+        .order-form input:focus, .order-form select:focus, .order-form textarea:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
         
-        .order-form button[type="submit"] {
+        .order-form textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .order-modal-footer {
+            padding: 20px 30px;
+            border-top: 1px solid var(--gray-light);
+            background-color: #f8fafc;
+            border-radius: 0 0 var(--radius) var(--radius);
+            flex-shrink: 0;
+        }
+        
+        .btn-order-submit {
             width: 100%;
             padding: 15px;
             background: linear-gradient(to right, #25D366, #128C7E);
@@ -1005,10 +1065,9 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            margin-top: 10px;
         }
         
-        .order-form button[type="submit"]:hover {
+        .btn-order-submit:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
         }
@@ -1082,6 +1141,12 @@
             
             .order-modal-content {
                 max-width: 100%;
+                max-height: 95vh;
+            }
+            
+            .category-tab {
+                padding: 10px 20px;
+                font-size: 0.9rem;
             }
         }
         
@@ -1109,6 +1174,10 @@
             
             .hero-cta {
                 justify-content: center;
+            }
+            
+            .product-actions {
+                flex-direction: column;
             }
         }
         
@@ -1158,6 +1227,23 @@
         .product-gallery img:hover, .product-gallery img.active {
             border-color: var(--primary);
         }
+        
+        /* Category Colors */
+        .category-website {
+            color: #3b82f6;
+        }
+        
+        .category-app {
+            color: #8b5cf6;
+        }
+        
+        .category-ecommerce {
+            color: #10b981;
+        }
+        
+        .category-custom {
+            color: #f59e0b;
+        }
     </style>
 </head>
 <body>
@@ -1187,7 +1273,7 @@
             <nav>
                 <ul id="navMenu">
                     <li><a href="#home">Beranda</a></li>
-                    <li><a href="#products">Produk</a></li>
+                    <li><a href="#products">Paket</a></li>
                     <li><a href="#services">Layanan</a></li>
                     <li><a href="#contact">Kontak</a></li>
                 </ul>
@@ -1207,11 +1293,11 @@
             <div class="hero-text">
                 <span class="badge animate__animated animate__pulse animate__infinite">🔥 Promo Khusus Bulan Ini</span>
                 <h1 class="animate__animated animate__fadeInUp">Buat Website & Aplikasi <span>Harga Terjangkau</span></h1>
-                <p class="animate__animated animate__fadeInUp animate__delay-1s">CV. ZRS Digital menghadirkan solusi website dan aplikasi berkualitas mulai dari <strong>Rp 200.000</strong> hingga <strong>Rp 3.000.000</strong>. Cocok untuk sekolah, organisasi, UKM, pemerintahan, dan berbagai kebutuhan bisnis lainnya.</p>
+                <p class="animate__animated animate__fadeInUp animate__delay-1s">CV. ZRS Digital menghadirkan solusi website dan aplikasi berkualitas dengan harga kompetitif. Mulai dari <strong>Rp 500.000</strong> untuk website hingga <strong>Rp 3.000.000</strong> untuk aplikasi custom.</p>
                 
                 <div class="hero-cta">
                     <a href="#products" class="btn-primary animate__animated animate__fadeInUp animate__delay-2s">
-                        <i class="fas fa-shopping-cart"></i> Lihat Produk
+                        <i class="fas fa-shopping-cart"></i> Lihat Paket
                     </a>
                     <a href="#contact" class="btn-secondary animate__animated animate__fadeInUp animate__delay-2s">
                         <i class="fas fa-comment-alt"></i> Konsultasi Gratis
@@ -1220,11 +1306,11 @@
                 
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <span class="stat-number">200+</span>
+                        <span class="stat-number">250+</span>
                         <span class="stat-text">Proyek Selesai</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">95%</span>
+                        <span class="stat-number">96%</span>
                         <span class="stat-text">Kepuasan Klien</span>
                     </div>
                     <div class="stat-item">
@@ -1245,18 +1331,31 @@
         <div class="container">
             <div class="section-title">
                 <h2>Paket Website & Aplikasi</h2>
-                <p>Pilih paket sesuai kebutuhan dengan harga terjangkau mulai dari Rp 200.000</p>
+                <p>Pilih paket sesuai kebutuhan dengan harga yang kompetitif</p>
             </div>
             
-            <div class="products-filter">
-                <button class="filter-btn active" data-filter="all">Semua</button>
-                <button class="filter-btn" data-filter="basic">Basic (200K-500K)</button>
-                <button class="filter-btn" data-filter="standard">Standard (500K-1.5JT)</button>
-                <button class="filter-btn" data-filter="premium">Premium (1.5JT-3JT)</button>
+            <!-- Category Tabs -->
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="all">
+                    <i class="fas fa-th"></i> Semua
+                </button>
+                <button class="category-tab" data-category="website">
+                    <i class="fas fa-globe"></i> Website (500K-1JT)
+                </button>
+                <button class="category-tab" data-category="app">
+                    <i class="fas fa-mobile-alt"></i> Aplikasi (1JT-3JT)
+                </button>
+                <button class="category-tab" data-category="ecommerce">
+                    <i class="fas fa-shopping-cart"></i> E-Commerce
+                </button>
+                <button class="category-tab" data-category="custom">
+                    <i class="fas fa-cogs"></i> Custom
+                </button>
             </div>
             
-            <div class="products-grid" id="productsGrid">
-                <!-- Products will be loaded by JavaScript -->
+            <!-- Products will be loaded by JavaScript -->
+            <div id="categoryContent">
+                <!-- Content will be dynamically generated -->
             </div>
         </div>
     </section>
@@ -1415,19 +1514,19 @@
                 <div class="footer-column">
                     <h3>Paket Website</h3>
                     <a href="#products">Website Sekolah (Rp 750K)</a>
-                    <a href="#products">Website Pemerintahan (Rp 1.2JT)</a>
-                    <a href="#products">Website Organisasi (Rp 500K)</a>
+                    <a href="#products">Website Organisasi (Rp 600K)</a>
+                    <a href="#products">Website Pemerintahan (Rp 950K)</a>
                     <a href="#products">Website Berita (Rp 850K)</a>
-                    <a href="#products">Website UKM (Rp 400K)</a>
+                    <a href="#products">Website Pendidikan (Rp 700K)</a>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Paket Aplikasi</h3>
-                    <a href="#products">Aplikasi Kasir (Rp 1.5JT)</a>
-                    <a href="#products">Aplikasi Apotek (Rp 2JT)</a>
-                    <a href="#products">Aplikasi Sekolah (Rp 2.5JT)</a>
-                    <a href="#products">Custom App (Rp 3JT+)</a>
-                    <a href="#products">Toko Online (Rp 1.8JT)</a>
+                    <a href="#products">Aplikasi Kasir (Rp 1.8JT)</a>
+                    <a href="#products">Aplikasi Inventaris (Rp 1.5JT)</a>
+                    <a href="#products">Aplikasi Perpustakaan (Rp 2JT)</a>
+                    <a href="#products">Aplikasi SPP (Rp 1.7JT)</a>
+                    <a href="#products">Aplikasi Apotik (Rp 2.2JT)</a>
                 </div>
                 
                 <div class="footer-column">
@@ -1451,7 +1550,7 @@
     <div class="order-modal" id="orderModal">
         <div class="order-modal-content">
             <div class="order-modal-header">
-                <h3>Pesan Website/Aplikasi</h3>
+                <h3><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</h3>
                 <button class="close-order-modal" id="closeOrderModal">&times;</button>
             </div>
             <div class="order-modal-body">
@@ -1477,316 +1576,374 @@
                 <form class="order-form" id="orderForm">
                     <div class="form-group">
                         <label for="orderName">Nama Lengkap *</label>
-                        <input type="text" id="orderName" required>
+                        <input type="text" id="orderName" required placeholder="Masukkan nama lengkap">
                     </div>
                     
                     <div class="form-group">
                         <label for="orderPhone">No. WhatsApp *</label>
-                        <input type="tel" id="orderPhone" required>
+                        <input type="tel" id="orderPhone" required placeholder="Contoh: 081234567890">
                     </div>
                     
                     <div class="form-group">
                         <label for="orderEmail">Email (Opsional)</label>
-                        <input type="email" id="orderEmail">
+                        <input type="email" id="orderEmail" placeholder="email@contoh.com">
                     </div>
                     
                     <div class="form-group">
-                        <label for="orderNotes">Catatan Tambahan</label>
-                        <textarea id="orderNotes" placeholder="Detail tambahan tentang proyek, fitur khusus yang diinginkan, dll."></textarea>
+                        <label for="orderNotes">Catatan Tambahan (Opsional)</label>
+                        <textarea id="orderNotes" placeholder="Detail tambahan tentang proyek, fitur khusus yang diinginkan, timeline, dll."></textarea>
                     </div>
-                    
-                    <button type="submit">
-                        <i class="fab fa-whatsapp"></i> Kirim Pesanan ke WhatsApp
-                    </button>
                 </form>
+            </div>
+            <div class="order-modal-footer">
+                <button type="button" class="btn-order-submit" id="submitOrderBtn">
+                    <i class="fab fa-whatsapp"></i> Kirim Pesanan ke WhatsApp
+                </button>
+                <p style="text-align: center; margin-top: 10px; font-size: 0.85rem; color: var(--gray);">
+                    Data akan dikirim ke WhatsApp: 0852-1021-2740
+                </p>
             </div>
         </div>
     </div>
 
     <script>
-        // Data Produk dengan contoh gambar website yang sesuai
-        const products = [
-            {
-                id: 1,
-                name: "Website Sekolah Dasar",
-                description: "Website sederhana untuk sekolah dasar dengan profil sekolah, berita, dan galeri foto. Cocok untuk sekolah yang baru mulai go digital.",
-                image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                price: 750000,
-                originalPrice: 1000000,
-                category: "standard",
-                badge: "Best Seller",
-                features: [
-                    "5 Halaman (Home, Profil, Berita, Galeri, Kontak)",
-                    "Desain responsif mobile-friendly",
-                    "Form kontak sederhana",
-                    "Galeri foto (max 20 foto)",
-                    "Admin panel dasar"
-                ],
-                gallery: [
-                    "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                ],
-                whatsappMessage: "Halo CV. ZRS Digital, saya tertarik dengan paket Website Sekolah Dasar seharga Rp 750.000. Bisa minta informasi lebih detail?"
+        // Data Produk dengan pengelompokan harga
+        const products = {
+            "website": {
+                title: "Paket Website (Rp 500.000 - Rp 1.000.000)",
+                description: "Website profesional untuk berbagai kebutuhan dengan harga terjangkau",
+                items: [
+                    {
+                        id: 1,
+                        name: "Website Sekolah",
+                        description: "Website sekolah dengan profil, berita, galeri, dan pengumuman. Cocok untuk SD, SMP, SMA, atau pondok pesantren.",
+                        image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                        price: 750000,
+                        originalPrice: 950000,
+                        category: "website",
+                        badge: "Best Seller",
+                        features: [
+                            "Halaman profil sekolah lengkap",
+                            "Sistem berita & pengumuman",
+                            "Galeri foto & video kegiatan",
+                            "Form kontak & lokasi peta",
+                            "Admin panel mudah digunakan"
+                        ]
+                    },
+                    {
+                        id: 2,
+                        name: "Website Organisasi",
+                        description: "Website untuk organisasi, yayasan, atau komunitas dengan fitur keanggotaan dan kegiatan.",
+                        image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                        price: 600000,
+                        originalPrice: 800000,
+                        category: "website",
+                        badge: "Populer",
+                        features: [
+                            "Profil organisasi lengkap",
+                            "Daftar pengurus & anggota",
+                            "Program & kegiatan organisasi",
+                            "Galeri dokumentasi",
+                            "Form kontak & donasi"
+                        ]
+                    },
+                    {
+                        id: 3,
+                        name: "Website Pemerintahan",
+                        description: "Website resmi untuk desa, kelurahan, atau instansi pemerintah dengan tampilan formal dan informatif.",
+                        image: "https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                        price: 950000,
+                        originalPrice: 1200000,
+                        category: "website",
+                        badge: "Resmi",
+                        features: [
+                            "Profil & struktur organisasi",
+                            "Layanan publik online",
+                            "Pengumuman resmi",
+                            "Galeri kegiatan pemerintahan",
+                            "Form pengaduan masyarakat"
+                        ]
+                    },
+                    {
+                        id: 4,
+                        name: "Website Berita",
+                        description: "Portal berita online dengan sistem manajemen konten untuk publikasi artikel berita.",
+                        image: "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                        price: 850000,
+                        originalPrice: 1100000,
+                        category: "website",
+                        badge: "Update",
+                        features: [
+                            "Sistem kategori berita",
+                            "Editor artikel online",
+                            "Manajemen penulis",
+                            "Komentar pembaca",
+                            "Optimasi SEO"
+                        ]
+                    },
+                    {
+                        id: 5,
+                        name: "Website Pendidikan",
+                        description: "Website untuk lembaga pendidikan seperti kursus, bimbingan belajar, atau training center.",
+                        image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                        price: 700000,
+                        originalPrice: 900000,
+                        category: "website",
+                        badge: "Edukasi",
+                        features: [
+                            "Profil lembaga pendidikan",
+                            "Program & kurikulum",
+                            "Daftar pengajar",
+                            "Pendaftaran online",
+                            "Testimoni siswa"
+                        ]
+                    },
+                    {
+                        id: 6,
+                        name: "Website Personal/Portfolio",
+                        description: "Website personal untuk portofolio pekerjaan, CV online, atau blog pribadi.",
+                        image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                        price: 500000,
+                        originalPrice: 700000,
+                        category: "website",
+                        badge: "Personal",
+                        features: [
+                            "Portofolio pekerjaan",
+                            "Blog pribadi",
+                            "CV & pengalaman kerja",
+                            "Form kontak personal",
+                            "Integrasi media sosial"
+                        ]
+                    }
+                ]
             },
-            {
-                id: 2,
-                name: "Website Landing Page UKM",
-                description: "Website landing page sederhana untuk UKM dengan fokus pada promosi produk/jasa. Desain modern dan menarik perhatian.",
-                image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                price: 400000,
-                originalPrice: 600000,
-                category: "basic",
-                badge: "Hemat",
-                features: [
-                    "1 Halaman landing page scrollable",
-                    "Desain modern dan eye-catching",
-                    "Form kontak dan WhatsApp langsung",
-                    "Galeri produk/jasa",
-                    "Optimasi SEO dasar"
-                ],
-                gallery: [
-                    "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-                    "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=40"
-                ],
-                whatsappMessage: "Halo CV. ZRS Digital, saya ingin pesan Website Landing Page UKM seharga Rp 400.000. Bisa dikirim detailnya?"
+            "app": {
+                title: "Paket Aplikasi (Rp 1.000.000 - Rp 3.000.000)",
+                description: "Aplikasi berbasis web dan mobile untuk kebutuhan bisnis yang lebih kompleks",
+                items: [
+                    {
+                        id: 7,
+                        name: "Aplikasi Kasir & POS",
+                        description: "Sistem kasir dan point of sale lengkap untuk toko, restoran, atau retail dengan laporan real-time.",
+                        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                        price: 1800000,
+                        originalPrice: 2500000,
+                        category: "app",
+                        badge: "Lengkap",
+                        features: [
+                            "Transaksi penjualan cepat",
+                            "Manajemen stok otomatis",
+                            "Laporan harian/bulanan",
+                            "Multi-user & hak akses",
+                            "Backup data ke cloud"
+                        ]
+                    },
+                    {
+                        id: 8,
+                        name: "Aplikasi Inventaris",
+                        description: "Sistem manajemen inventaris untuk monitoring stok barang, pemasukan, dan pengeluaran.",
+                        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=60",
+                        price: 1500000,
+                        originalPrice: 2000000,
+                        category: "app",
+                        badge: "Efisien",
+                        features: [
+                            "Tracking stok barang",
+                            "Pencatatan pemasukan/pengeluaran",
+                            "Notifikasi stok menipis",
+                            "Laporan inventory",
+                            "Multi-lokasi gudang"
+                        ]
+                    },
+                    {
+                        id: 9,
+                        name: "Aplikasi Perpustakaan",
+                        description: "Sistem manajemen perpustakaan digital dengan katalog buku, peminjaman, dan pengembalian.",
+                        image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                        price: 2000000,
+                        originalPrice: 2800000,
+                        category: "app",
+                        badge: "Digital",
+                        features: [
+                            "Katalog buku digital",
+                            "Sistem peminjaman online",
+                            "Notifikasi pengembalian",
+                            "Manajemen anggota",
+                            "Laporan statistik"
+                        ]
+                    },
+                    {
+                        id: 10,
+                        name: "Aplikasi SPP Sekolah",
+                        description: "Sistem pembayaran SPP dan administrasi keuangan sekolah dengan pembayaran online.",
+                        image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=60",
+                        price: 1700000,
+                        originalPrice: 2300000,
+                        category: "app",
+                        badge: "Sekolah",
+                        features: [
+                            "Manajemen pembayaran SPP",
+                            "Tagihan otomatis per bulan",
+                            "Pembayaran via transfer/QRIS",
+                            "Laporan keuangan lengkap",
+                            "Notifikasi untuk orang tua"
+                        ]
+                    },
+                    {
+                        id: 11,
+                        name: "Aplikasi Apotek",
+                        description: "Sistem manajemen apotek dengan data obat, resep dokter, dan penjualan.",
+                        image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                        price: 2200000,
+                        originalPrice: 3000000,
+                        category: "app",
+                        badge: "Medis",
+                        features: [
+                            "Database obat lengkap",
+                            "Manajemen resep dokter",
+                            "Sistem stok & kadaluarsa",
+                            "Laporan penjualan",
+                            "Manajemen supplier"
+                        ]
+                    },
+                    {
+                        id: 12,
+                        name: "Aplikasi Wisata",
+                        description: "Sistem pemesanan tiket dan paket wisata untuk biro perjalanan atau objek wisata.",
+                        image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                        price: 1900000,
+                        originalPrice: 2600000,
+                        category: "app",
+                        badge: "Travel",
+                        features: [
+                            "Katalog paket wisata",
+                            "Pemesanan tiket online",
+                            "Sistem pembayaran",
+                            "Manajemen jadwal tour",
+                            "Review & rating"
+                        ]
+                    },
+                    {
+                        id: 13,
+                        name: "Aplikasi Koperasi",
+                        description: "Sistem manajemen koperasi simpan pinjam dengan pembukuan dan laporan keuangan.",
+                        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=40",
+                        price: 2100000,
+                        originalPrice: 2900000,
+                        category: "app",
+                        badge: "Koperasi",
+                        features: [
+                            "Simpanan & pinjaman anggota",
+                            "Pembukuan keuangan",
+                            "Bunga & bagi hasil",
+                            "Laporan keuangan",
+                            "Manajemen anggota"
+                        ]
+                    },
+                    {
+                        id: 14,
+                        name: "Aplikasi Custom",
+                        description: "Aplikasi custom sesuai kebutuhan spesifik bisnis Anda dengan konsultasi terlebih dahulu.",
+                        image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=60",
+                        price: 3000000,
+                        originalPrice: 4000000,
+                        category: "app",
+                        badge: "Custom",
+                        features: [
+                            "Analisis kebutuhan bisnis",
+                            "Desain UI/UX custom",
+                            "Pengembangan full stack",
+                            "Testing & deployment",
+                            "Maintenance & support"
+                        ]
+                    }
+                ]
             },
-            {
-                id: 3,
-                name: "Website Pemerintahan Desa",
-                description: "Website resmi pemerintahan desa dengan tampilan formal dan informatif. Cocok untuk desa yang ingin meningkatkan transparansi.",
-                image: "https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                price: 1200000,
-                originalPrice: 1500000,
-                category: "standard",
-                badge: "Formal",
-                features: [
-                    "8 Halaman lengkap (Profil, Struktur, Layanan, dll)",
-                    "Sistem pengaduan masyarakat online",
-                    "Galeri kegiatan desa",
-                    "Informasi layanan publik",
-                    "Admin panel dengan multi-user"
-                ],
-                gallery: [
-                    "https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
-                ],
-                whatsappMessage: "Halo CV. ZRS Digital, saya dari pemerintahan desa ingin buat website resmi seharga Rp 1.200.000. Bisa konsultasi?"
+            "ecommerce": {
+                title: "Paket E-Commerce & Toko Online",
+                description: "Website toko online dengan sistem pembayaran dan manajemen produk",
+                items: [
+                    {
+                        id: 15,
+                        name: "Toko Online UKM",
+                        description: "Website toko online untuk UKM dengan katalog produk, keranjang belanja, dan checkout.",
+                        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                        price: 1500000,
+                        originalPrice: 2000000,
+                        category: "ecommerce",
+                        badge: "UKM",
+                        features: [
+                            "Katalog produk dengan kategori",
+                            "Keranjang belanja & checkout",
+                            "Pembayaran via transfer/QRIS",
+                            "Manajemen pesanan",
+                            "Laporan penjualan"
+                        ]
+                    },
+                    {
+                        id: 16,
+                        name: "Marketplace Mini",
+                        description: "Platform marketplace dengan multi-vendor untuk menjual produk dari berbagai penjual.",
+                        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=60",
+                        price: 2500000,
+                        originalPrice: 3500000,
+                        category: "ecommerce",
+                        badge: "Marketplace",
+                        features: [
+                            "Multi-vendor & produk",
+                            "Sistem komisi otomatis",
+                            "Review & rating produk",
+                            "Dashboard untuk penjual",
+                            "Admin panel lengkap"
+                        ]
+                    }
+                ]
             },
-            {
-                id: 4,
-                name: "Aplikasi Kasir Sederhana",
-                description: "Aplikasi kasir untuk toko kecil dengan fitur transaksi, stok, dan laporan penjualan harian. Cocok untuk toko retail atau warung.",
-                image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                price: 1500000,
-                originalPrice: 2000000,
-                category: "premium",
-                badge: "POPuler",
-                features: [
-                    "Transaksi penjualan cepat",
-                    "Manajemen stok produk",
-                    "Laporan penjualan harian",
-                    "Multi kasir (max 3 user)",
-                    "Backup data lokal"
-                ],
-                gallery: [
-                    "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-                    "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=40"
-                ],
-                whatsappMessage: "Halo CV. ZRS Digital, saya ingin pesan Aplikasi Kasir Sederhana seharga Rp 1.500.000 untuk toko saya."
-            },
-            {
-                id: 5,
-                name: "Website Personal/Blog",
-                description: "Website personal atau blog untuk penulis, fotografer, atau profesional. Cocok untuk portfolio online atau blog pribadi.",
-                image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                price: 300000,
-                originalPrice: 500000,
-                category: "basic",
-                badge: "Murah",
-                features: [
-                    "3 Halaman (Home, Blog, About)",
-                    "Sistem blog dengan kategori",
-                    "Form kontak sederhana",
-                    "Desain minimalis dan elegan",
-                    "Responsif di semua device"
-                ],
-                gallery: [
-                    "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
-                ],
-                whatsappMessage: "Halo CV. ZRS Digital, saya ingin buat Website Personal/Blog seharga Rp 300.000. Bisa minta penawaran?"
-            },
-            {
-                id: 6,
-                name: "Aplikasi Apotek Lengkap",
-                description: "Aplikasi manajemen apotek dengan fitur lengkap untuk obat, stok, resep, dan penjualan. Cocok untuk apotek kecil hingga menengah.",
-                image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                price: 2500000,
-                originalPrice: 3000000,
-                category: "premium",
-                badge: "Lengkap",
-                features: [
-                    "Database obat lengkap (500+ obat)",
-                    "Manajemen stok dengan notifikasi",
-                    "Sistem resep dokter digital",
-                    "Laporan penjualan dan pembelian",
-                    "Multi-user dengan hak akses berbeda"
-                ],
-                gallery: [
-                    "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-                    "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=40"
-                ],
-                whatsappMessage: "Halo CV. ZRS Digital, apotek saya butuh aplikasi manajemen lengkap seharga Rp 2.500.000. Bisa konsultasi dulu?"
-            },
-            {
-                id: 7,
-                name: "Website Organisasi Kemasyarakatan",
-                description: "Website untuk organisasi kemasyarakatan, yayasan, atau komunitas dengan fitur keanggotaan dan kegiatan.",
-                image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                price: 500000,
-                originalPrice: 750000,
-                category: "basic",
-                badge: "Sosial",
-                features: [
-                    "6 Halaman (Profil, Program, Anggota, dll)",
-                    "Form pendaftaran anggota",
-                    "Galeri kegiatan organisasi",
-                    "Blog/berita internal",
-                    "Integrasi media sosial"
-                ],
-                gallery: [
-                    "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-                    "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=40"
-                ],
-                whatsappMessage: "Halo CV. ZRS Digital, organisasi saya perlu website seharga Rp 500.000. Bisa buatkan yang bagus?"
-            },
-            {
-                id: 8,
-                name: "Website Berita Portal",
-                description: "Website portal berita dengan sistem manajemen konten yang mudah digunakan. Cocok untuk media online lokal.",
-                image: "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                price: 850000,
-                originalPrice: 1200000,
-                category: "standard",
-                badge: "Update",
-                features: [
-                    "Sistem manajemen konten (CMS)",
-                    "Multi-kategori berita",
-                    "Manajemen penulis/editor",
-                    "Sistem komentar pembaca",
-                    "Optimasi SEO lengkap"
-                ],
-                gallery: [
-                    "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-                    "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=40"
-                ],
-                whatsappMessage: "Halo CV. ZRS Digital, saya ingin buat Website Berita Portal seharga Rp 850.000. Bisa minta demo?"
-            },
-            {
-                id: 9,
-                name: "Website Masjid Digital",
-                description: "Website untuk masjid dengan fitur jadwal sholat, pengumuman, donasi online, dan kajian. Harga khusus untuk masjid.",
-                image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                price: 200000,
-                originalPrice: 400000,
-                category: "basic",
-                badge: "Spesial",
-                features: [
-                    "Jadwal sholat otomatis",
-                    "Sistem donasi online",
-                    "Pengumuman kegiatan masjid",
-                    "Galeri foto kegiatan",
-                    "Desain islami yang elegan"
-                ],
-                gallery: [
-                    "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-                    "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=40"
-                ],
-                whatsappMessage: "Halo CV. ZRS Digital, masjid kami ingin buat website digital seharga Rp 200.000. Bisa minta penawaran?"
-            },
-            {
-                id: 10,
-                name: "Website Toko Online (E-commerce)",
-                description: "Website toko online dengan fitur katalog produk, keranjang belanja, dan checkout. Cocok untuk UKM yang ingin jualan online.",
-                image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                price: 1800000,
-                originalPrice: 2500000,
-                category: "premium",
-                badge: "E-commerce",
-                features: [
-                    "Katalog produk (max 50 produk)",
-                    "Keranjang belanja dan checkout",
-                    "Integrasi payment gateway",
-                    "Admin panel untuk kelola produk",
-                    "Laporan penjualan otomatis"
-                ],
-                gallery: [
-                    "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-                    "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=40"
-                ],
-                whatsappMessage: "Halo CV. ZRS Digital, UKM saya ingin buat toko online seharga Rp 1.800.000. Bisa buatkan yang modern?"
-            },
-            {
-                id: 11,
-                name: "Aplikasi Sistem Sekolah",
-                description: "Aplikasi lengkap untuk manajemen sekolah dengan fitur siswa, guru, nilai, dan keuangan. Cocok untuk sekolah menengah.",
-                image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                price: 3000000,
-                originalPrice: 4000000,
-                category: "premium",
-                badge: "Komprehensif",
-                features: [
-                    "Manajemen data siswa dan guru",
-                    "Sistem nilai dan raport online",
-                    "Keuangan sekolah (SPP, dll)",
-                    "Jadwal pelajaran digital",
-                    "Parent access via mobile"
-                ],
-                gallery: [
-                    "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                ],
-                whatsappMessage: "Halo CV. ZRS Digital, sekolah saya butuh aplikasi sistem lengkap seharga Rp 3.000.000. Bisa konsultasi detailnya?"
-            },
-            {
-                id: 12,
-                name: "Website Profil Perusahaan",
-                description: "Website profil perusahaan profesional dengan portfolio, layanan, dan testimoni. Cocok untuk perusahaan jasa atau konsultan.",
-                image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                price: 600000,
-                originalPrice: 900000,
-                category: "standard",
-                badge: "Profesional",
-                features: [
-                    "5-7 Halaman (Home, Profil, Layanan, dll)",
-                    "Portfolio dengan filter kategori",
-                    "Testimoni klien",
-                    "Form konsultasi/project",
-                    "Desain corporate yang elegan"
-                ],
-                gallery: [
-                    "https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-                    "https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=40"
-                ],
-                whatsappMessage: "Halo CV. ZRS Digital, perusahaan saya butuh website profil seharga Rp 600.000. Bisa buatkan yang profesional?"
+            "custom": {
+                title: "Paket Custom Development",
+                description: "Solusi custom untuk kebutuhan spesifik yang tidak tersedia di paket standar",
+                items: [
+                    {
+                        id: 17,
+                        name: "Website Custom",
+                        description: "Website dengan desain dan fitur khusus sesuai kebutuhan bisnis Anda.",
+                        image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                        price: 1200000,
+                        originalPrice: 1800000,
+                        category: "custom",
+                        badge: "Tailored",
+                        features: [
+                            "Konsultasi kebutuhan",
+                            "Desain UI/UX custom",
+                            "Fitur sesuai permintaan",
+                            "Development khusus",
+                            "Testing & deployment"
+                        ]
+                    },
+                    {
+                        id: 18,
+                        name: "Aplikasi Mobile",
+                        description: "Aplikasi mobile native untuk iOS dan Android dengan fitur khusus.",
+                        image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                        price: 3500000,
+                        originalPrice: 5000000,
+                        category: "custom",
+                        badge: "Mobile",
+                        features: [
+                            "Aplikasi iOS & Android",
+                            "Desain mobile-friendly",
+                            "Integrasi API",
+                            "Push notification",
+                            "App store deployment"
+                        ]
+                    }
+                ]
             }
-        ];
+        };
 
         // DOM Elements
-        const productsGrid = document.getElementById('productsGrid');
-        const filterButtons = document.querySelectorAll('.filter-btn');
+        const categoryContent = document.getElementById('categoryContent');
+        const categoryTabs = document.querySelectorAll('.category-tab');
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navMenu = document.getElementById('navMenu');
         const header = document.getElementById('header');
@@ -1794,6 +1951,7 @@
         const orderModal = document.getElementById('orderModal');
         const closeOrderModal = document.getElementById('closeOrderModal');
         const orderForm = document.getElementById('orderForm');
+        const submitOrderBtn = document.getElementById('submitOrderBtn');
         
         // Order form elements
         const orderProductName = document.getElementById('orderProductName');
@@ -1818,7 +1976,7 @@
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
-            renderProducts();
+            renderCategory('all');
             setupEventListeners();
             initScrollAnimations();
             
@@ -1832,82 +1990,71 @@
             });
         });
 
-        // Render products to the page
-        function renderProducts(filter = 'all') {
-            productsGrid.innerHTML = '';
+        // Render category content
+        function renderCategory(category) {
+            categoryContent.innerHTML = '';
             
-            let filteredProducts;
-            
-            if (filter === 'all') {
-                filteredProducts = products;
-            } else if (filter === 'basic') {
-                filteredProducts = products.filter(product => product.price <= 500000);
-            } else if (filter === 'standard') {
-                filteredProducts = products.filter(product => product.price > 500000 && product.price <= 1500000);
-            } else if (filter === 'premium') {
-                filteredProducts = products.filter(product => product.price > 1500000);
-            }
-            
-            filteredProducts.forEach(product => {
-                const productCard = document.createElement('div');
-                productCard.className = 'product-card animate-on-scroll';
-                productCard.setAttribute('data-category', product.category);
-                
-                // Create product features list
-                const featuresList = product.features.map(feature => 
-                    `<li><i class="fas fa-check"></i> ${feature}</li>`
-                ).join('');
-                
-                // Create gallery images
-                let galleryHTML = '';
-                if (product.gallery && product.gallery.length > 0) {
-                    galleryHTML = `
-                        <div class="product-gallery">
-                            ${product.gallery.map((img, index) => 
-                                `<img src="${img}" alt="Contoh ${product.name}" class="${index === 0 ? 'active' : ''}" onclick="changeProductImage(this, '${product.image}')">`
-                            ).join('')}
-                        </div>
+            if (category === 'all') {
+                // Show all categories
+                for (const catKey in products) {
+                    const categoryData = products[catKey];
+                    
+                    // Create category section
+                    const categorySection = document.createElement('div');
+                    categorySection.className = 'category-section animate-on-scroll';
+                    
+                    // Create price range header
+                    const priceRange = document.createElement('div');
+                    priceRange.className = 'price-range';
+                    priceRange.innerHTML = `
+                        <h3>${categoryData.title}</h3>
+                        <p>${categoryData.description}</p>
                     `;
+                    categorySection.appendChild(priceRange);
+                    
+                    // Create products grid
+                    const productsGrid = document.createElement('div');
+                    productsGrid.className = 'products-grid';
+                    
+                    // Add products
+                    categoryData.items.forEach(product => {
+                        productsGrid.appendChild(createProductCard(product));
+                    });
+                    
+                    categorySection.appendChild(productsGrid);
+                    categoryContent.appendChild(categorySection);
                 }
+            } else {
+                // Show specific category
+                const categoryData = products[category];
                 
-                productCard.innerHTML = `
-                    ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
-                    <div class="product-image">
-                        <img src="${product.image}" alt="${product.name}" id="productImage-${product.id}">
-                    </div>
-                    <div class="product-content">
-                        <span class="product-category">${product.category.toUpperCase()} 
-                            <span class="price-badge">${formatCurrency(product.price)}</span>
-                        </span>
-                        <h3 class="product-title">${product.name}</h3>
-                        <p class="product-description">${product.description}</p>
-                        
-                        ${galleryHTML}
-                        
-                        <ul class="product-features">
-                            ${featuresList}
-                        </ul>
-                        
-                        <div class="product-price">
-                            <div class="price">
-                                ${formatCurrency(product.price)}
-                                ${product.originalPrice ? `<span>${formatCurrency(product.originalPrice)}</span>` : ''}
-                            </div>
-                        </div>
-                        
-                        <div class="product-actions">
-                            <button class="btn-whatsapp" onclick="openOrderModal(${product.id})">
-                                <i class="fas fa-shopping-cart"></i> Pesan Sekarang
-                            </button>
-                            <button class="btn-detail" onclick="showProductDetail(${product.id})">
-                                <i class="fas fa-info-circle"></i> Detail
-                            </button>
-                        </div>
-                    </div>
-                `;
-                
-                productsGrid.appendChild(productCard);
-            });
+                if (categoryData) {
+                    // Create category section
+                    const categorySection = document.createElement('div');
+                    categorySection.className = 'category-section animate-on-scroll';
+                    
+                    // Create price range header
+                    const priceRange = document.createElement('div');
+                    priceRange.className = 'price-range';
+                    priceRange.innerHTML = `
+                        <h3>${categoryData.title}</h3>
+                        <p>${categoryData.description}</p>
+                    `;
+                    categorySection.appendChild(priceRange);
+                    
+                    // Create products grid
+                    const productsGrid = document.createElement('div');
+                    productsGrid.className = 'products-grid';
+                    
+                    // Add products
+                    categoryData.items.forEach(product => {
+                        productsGrid.appendChild(createProductCard(product));
+                    });
+                    
+                    categorySection.appendChild(productsGrid);
+                    categoryContent.appendChild(categorySection);
+                }
+            }
             
             // Trigger animation for newly added elements
             setTimeout(() => {
@@ -1917,6 +2064,65 @@
                     }
                 });
             }, 100);
+        }
+
+        // Create product card element
+        function createProductCard(product) {
+            const productCard = document.createElement('div');
+            productCard.className = 'product-card';
+            productCard.setAttribute('data-category', product.category);
+            
+            // Create product features list
+            const featuresList = product.features.map(feature => 
+                `<li><i class="fas fa-check"></i> ${feature}</li>`
+            ).join('');
+            
+            productCard.innerHTML = `
+                ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
+                <div class="product-image">
+                    <img src="${product.image}" alt="${product.name}">
+                </div>
+                <div class="product-content">
+                    <span class="product-category category-${product.category}">
+                        <i class="fas fa-${getCategoryIcon(product.category)}"></i> ${product.category.toUpperCase()}
+                    </span>
+                    <h3 class="product-title">${product.name}</h3>
+                    <p class="product-description">${product.description}</p>
+                    
+                    <ul class="product-features">
+                        ${featuresList}
+                    </ul>
+                    
+                    <div class="product-price">
+                        <div class="price">
+                            ${formatCurrency(product.price)}
+                            ${product.originalPrice ? `<span>${formatCurrency(product.originalPrice)}</span>` : ''}
+                        </div>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <button class="btn-whatsapp" onclick="openOrderModal(${product.id})">
+                            <i class="fas fa-shopping-cart"></i> Pesan Sekarang
+                        </button>
+                        <button class="btn-detail" onclick="showProductDetail(${product.id})">
+                            <i class="fas fa-info-circle"></i> Detail
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            return productCard;
+        }
+
+        // Get icon based on category
+        function getCategoryIcon(category) {
+            switch(category) {
+                case 'website': return 'globe';
+                case 'app': return 'mobile-alt';
+                case 'ecommerce': return 'shopping-cart';
+                case 'custom': return 'cogs';
+                default: return 'cube';
+            }
         }
 
         // Setup event listeners
@@ -1929,17 +2135,20 @@
                     : '<i class="fas fa-bars"></i>';
             });
             
-            // Filter buttons
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add active class to clicked button
-                    button.classList.add('active');
+            // Category tabs
+            categoryTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    categoryTabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
                     
-                    // Filter products
-                    const filter = button.getAttribute('data-filter');
-                    renderProducts(filter);
+                    // Render category
+                    const category = tab.getAttribute('data-category');
+                    renderCategory(category);
+                    
+                    // Scroll to products section
+                    document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
                 });
             });
             
@@ -1966,36 +2175,8 @@
                 alert('Terima kasih! Anda akan diarahkan ke WhatsApp untuk melanjutkan konsultasi.');
             });
             
-            // Order form submission
-            orderForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                if (!selectedProduct) {
-                    alert('Produk tidak ditemukan. Silakan coba lagi.');
-                    return;
-                }
-                
-                const name = document.getElementById('orderName').value;
-                const phone = document.getElementById('orderPhone').value;
-                const email = document.getElementById('orderEmail').value;
-                const notes = document.getElementById('orderNotes').value;
-                
-                // Create WhatsApp message for order
-                const whatsappMessage = `Halo CV. ZRS Digital,%0A%0ASaya ${name} ingin memesan:%0A%0A*PRODUK:* ${selectedProduct.name}%0A*HARGA:* ${formatCurrency(selectedProduct.price)}%0A%0A*DATA PEMESAN:*%0A- No. HP/WA: ${phone}%0A${email ? `- Email: ${email}%0A` : ''}${notes ? `- Catatan: ${notes}%0A` : ''}%0ASaya setuju dengan harga dan spesifikasi yang tertera. Mohon proses pemesanannya.%0A%0ATerima kasih.`;
-                
-                // Open WhatsApp
-                window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
-                
-                // Close modal
-                closeOrderModal.click();
-                
-                // Reset form
-                orderForm.reset();
-                selectedProduct = null;
-                
-                // Show success message
-                alert('Terima kasih! Pesanan Anda akan diproses. Anda akan diarahkan ke WhatsApp untuk konfirmasi lebih lanjut.');
-            });
+            // Submit order button
+            submitOrderBtn.addEventListener('click', submitOrder);
             
             // Close order modal
             closeOrderModal.addEventListener('click', () => {
@@ -2048,10 +2229,26 @@
             );
         }
 
+        // Find product by ID
+        function findProductById(id) {
+            id = parseInt(id);
+            
+            // Search through all categories
+            for (const catKey in products) {
+                const product = products[catKey].items.find(p => p.id === id);
+                if (product) return product;
+            }
+            
+            return null;
+        }
+
         // Open order modal
         function openOrderModal(productId) {
-            selectedProduct = products.find(p => p.id === productId);
-            if (!selectedProduct) return;
+            selectedProduct = findProductById(productId);
+            if (!selectedProduct) {
+                alert('Produk tidak ditemukan. Silakan coba lagi.');
+                return;
+            }
             
             // Update order summary
             orderProductName.textContent = selectedProduct.name;
@@ -2075,37 +2272,72 @@
             }, 300);
         }
 
+        // Submit order
+        function submitOrder() {
+            if (!selectedProduct) {
+                alert('Produk tidak ditemukan. Silakan coba lagi.');
+                return;
+            }
+            
+            const name = document.getElementById('orderName').value.trim();
+            const phone = document.getElementById('orderPhone').value.trim();
+            const email = document.getElementById('orderEmail').value.trim();
+            const notes = document.getElementById('orderNotes').value.trim();
+            
+            // Validate form
+            if (!name || !phone) {
+                alert('Harap isi nama lengkap dan nomor WhatsApp.');
+                return;
+            }
+            
+            // Create WhatsApp message for order
+            const whatsappMessage = `Halo CV. ZRS Digital,%0A%0ASaya *${name}* ingin memesan:%0A%0A*PRODUK:* ${selectedProduct.name}%0A*HARGA:* ${formatCurrency(selectedProduct.price)}%0A*KATEGORI:* ${selectedProduct.category.toUpperCase()}%0A%0A*DATA PEMESAN:*%0A- No. HP/WA: ${phone}%0A${email ? `- Email: ${email}%0A` : ''}${notes ? `- Catatan: ${notes}%0A` : ''}%0ASaya setuju dengan harga dan spesifikasi yang tertera. Mohon proses pemesanannya.%0A%0ATerima kasih.`;
+            
+            // Open WhatsApp
+            window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
+            
+            // Close modal
+            closeOrderModal.click();
+            
+            // Reset form
+            document.getElementById('orderName').value = '';
+            document.getElementById('orderPhone').value = '';
+            document.getElementById('orderEmail').value = '';
+            document.getElementById('orderNotes').value = '';
+            selectedProduct = null;
+            
+            // Show success message
+            alert('Terima kasih! Pesanan Anda akan diproses. Anda akan diarahkan ke WhatsApp untuk konfirmasi lebih lanjut.');
+        }
+
         // Show product detail (simple alert for now)
         function showProductDetail(productId) {
-            const product = products.find(p => p.id === productId);
+            const product = findProductById(productId);
             if (!product) return;
             
             const featuresList = product.features.map(feature => `✓ ${feature}`).join('\n');
             
-            alert(`DETAIL PRODUK:\n\n${product.name}\n\nHarga: ${formatCurrency(product.price)}\n${product.originalPrice ? `Harga Normal: ${formatCurrency(product.originalPrice)}\n` : ''}\nDeskripsi:\n${product.description}\n\nFitur:\n${featuresList}\n\nKlik "Pesan Sekarang" untuk memesan produk ini.`);
-        }
+            const detailMessage = `
+DETAIL PRODUK:
 
-        // Change product image in gallery
-        function changeProductImage(imgElement, defaultImage) {
-            // Remove active class from all images in this gallery
-            const gallery = imgElement.parentElement;
-            gallery.querySelectorAll('img').forEach(img => img.classList.remove('active'));
-            
-            // Add active class to clicked image
-            imgElement.classList.add('active');
-            
-            // Get the product card
-            const productCard = imgElement.closest('.product-card');
-            const productImage = productCard.querySelector('.product-image img');
-            
-            // Change the main image
-            productImage.src = imgElement.src;
+${product.name}
+
+Harga: ${formatCurrency(product.price)}
+${product.originalPrice ? `Harga Normal: ${formatCurrency(product.originalPrice)}\n` : ''}
+Deskripsi:
+${product.description}
+
+Fitur:
+${featuresList}
+
+Klik "Pesan Sekarang" untuk memesan produk ini.`;
+
+            alert(detailMessage);
         }
 
         // Make functions available globally
         window.openOrderModal = openOrderModal;
         window.showProductDetail = showProductDetail;
-        window.changeProductImage = changeProductImage;
     </script>
 </body>
 </html>
