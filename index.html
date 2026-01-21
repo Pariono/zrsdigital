@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV. ZRS Digital - Portofolio Aplikasi & Website</title>
+    <title>CV. ZRS Digital - Portofolio & Pembelian Aplikasi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
@@ -11,10 +11,11 @@
             --primary: #2c3e50;
             --secondary: #3498db;
             --accent: #e74c3c;
+            --success: #27ae60;
+            --warning: #f39c12;
             --light: #ecf0f1;
             --dark: #2c3e50;
             --gray: #95a5a6;
-            --success: #27ae60;
         }
         
         * {
@@ -86,6 +87,7 @@
         
         nav ul li {
             margin-left: 1.5rem;
+            position: relative;
         }
         
         nav ul li a {
@@ -94,10 +96,28 @@
             font-weight: 500;
             transition: color 0.3s;
             padding: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
         
         nav ul li a:hover {
             color: var(--secondary);
+        }
+        
+        .cart-count {
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            position: absolute;
+            top: -10px;
+            right: -10px;
         }
         
         .mobile-menu {
@@ -205,6 +225,546 @@
             margin: 1rem auto 0;
         }
         
+        /* Products/Portfolio Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .product-info p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+        
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .product-price span {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-decoration: line-through;
+            margin-left: 5px;
+        }
+        
+        .product-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .tag {
+            background-color: #e8f4fc;
+            color: var(--secondary);
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+        
+        .btn-buy, .btn-detail {
+            flex: 1;
+            padding: 0.7rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .btn-buy {
+            background-color: var(--success);
+            color: white;
+        }
+        
+        .btn-buy:hover {
+            background-color: #219653;
+        }
+        
+        .btn-detail {
+            background-color: #f0f0f0;
+            color: var(--dark);
+        }
+        
+        .btn-detail:hover {
+            background-color: #e0e0e0;
+        }
+        
+        /* Cart Modal */
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .cart-content {
+            background-color: white;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .cart-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .cart-header h3 {
+            font-size: 1.5rem;
+        }
+        
+        .close-cart {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+        
+        .cart-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+        
+        .cart-empty {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray);
+        }
+        
+        .cart-empty i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ddd;
+        }
+        
+        .cart-items {
+            width: 100%;
+        }
+        
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+        
+        .cart-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .cart-item-details {
+            flex-grow: 1;
+        }
+        
+        .cart-item-details h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .cart-item-price {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 0.5rem;
+        }
+        
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .quantity {
+            font-weight: 600;
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .cart-item-remove {
+            background: none;
+            border: none;
+            color: var(--accent);
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+        }
+        
+        .cart-footer {
+            padding: 1.5rem;
+            border-top: 1px solid #eee;
+            background-color: #f9f9f9;
+        }
+        
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .cart-total-amount {
+            color: var(--secondary);
+        }
+        
+        .cart-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-checkout, .btn-continue {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-checkout {
+            background-color: var(--success);
+            color: white;
+        }
+        
+        .btn-checkout:hover {
+            background-color: #219653;
+        }
+        
+        .btn-continue {
+            background-color: #f0f0f0;
+            color: var(--dark);
+        }
+        
+        .btn-continue:hover {
+            background-color: #e0e0e0;
+        }
+        
+        /* Checkout Modal */
+        .checkout-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .checkout-content {
+            background-color: white;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .checkout-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .checkout-header h3 {
+            font-size: 1.5rem;
+        }
+        
+        .close-checkout {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+        
+        .checkout-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+        
+        .checkout-summary {
+            background-color: #f9f9f9;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .checkout-summary h4 {
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+        
+        .checkout-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .checkout-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+        }
+        
+        .checkout-form {
+            margin-top: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .payment-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+        
+        .payment-method {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .payment-method:hover {
+            border-color: var(--secondary);
+        }
+        
+        .payment-method input {
+            width: auto;
+        }
+        
+        .checkout-footer {
+            padding: 1.5rem;
+            border-top: 1px solid #eee;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        
+        .btn-confirm {
+            background-color: var(--success);
+            color: white;
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        
+        .btn-confirm:hover {
+            background-color: #219653;
+        }
+        
+        /* Success Modal */
+        .success-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 4000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .success-content {
+            background-color: white;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            padding: 2.5rem 2rem;
+        }
+        
+        .success-icon {
+            color: var(--success);
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .success-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .success-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn-success {
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-success:hover {
+            background-color: #2980b9;
+        }
+        
         /* Services Section */
         .services-grid {
             display: grid;
@@ -249,96 +809,6 @@
         .service-content p {
             color: #555;
             margin-bottom: 1rem;
-        }
-        
-        /* Portfolio Section */
-        .portfolio-filter {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 2.5rem;
-        }
-        
-        .filter-btn {
-            background-color: white;
-            border: 1px solid #ddd;
-            padding: 0.5rem 1.2rem;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 500;
-        }
-        
-        .filter-btn.active, .filter-btn:hover {
-            background-color: var(--secondary);
-            color: white;
-            border-color: var(--secondary);
-        }
-        
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-        
-        .portfolio-item {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
-        }
-        
-        .portfolio-item:hover {
-            transform: translateY(-10px);
-        }
-        
-        .portfolio-img {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .portfolio-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .portfolio-item:hover .portfolio-img img {
-            transform: scale(1.05);
-        }
-        
-        .portfolio-info {
-            padding: 1.5rem;
-        }
-        
-        .portfolio-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-        
-        .portfolio-info p {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-        
-        .portfolio-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 1rem;
-        }
-        
-        .tag {
-            background-color: #e8f4fc;
-            color: var(--secondary);
-            padding: 0.2rem 0.7rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
         }
         
         /* GitHub Section */
@@ -498,7 +968,8 @@
             }
             
             nav ul li a {
-                display: block;
+                display: flex;
+                justify-content: center;
                 padding: 0.8rem 1rem;
             }
             
@@ -512,6 +983,28 @@
             
             .github-box {
                 padding: 1.5rem;
+            }
+            
+            .cart-content, .checkout-content {
+                width: 95%;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .cart-item-img {
+                margin-bottom: 1rem;
+            }
+            
+            .cart-actions, .product-actions {
+                flex-direction: column;
             }
         }
         
@@ -528,8 +1021,12 @@
                 padding: 3rem 0;
             }
             
-            .portfolio-grid {
+            .products-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .success-content {
+                padding: 2rem 1rem;
             }
         }
     </style>
@@ -550,10 +1047,15 @@
             <nav>
                 <ul id="navMenu">
                     <li><a href="#home">Beranda</a></li>
-                    <li><a href="#services">Layanan</a></li>
-                    <li><a href="#portfolio">Portofolio</a></li>
+                    <li><a href="#products">Produk & Layanan</a></li>
+                    <li><a href="#services">Jasa Pembuatan</a></li>
                     <li><a href="#github">GitHub</a></li>
-                    <li><a href="#contact">Kontak</a></li>
+                    <li>
+                        <a href="#" id="cartButton">
+                            <i class="fas fa-shopping-cart"></i> Keranjang
+                            <span class="cart-count" id="cartCount">0</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -565,7 +1067,7 @@
             <div class="hero-text">
                 <h2>Solusi Digital untuk Bisnis dan Institusi Anda</h2>
                 <p>CV. ZRS Digital adalah perusahaan pengembang aplikasi dan website profesional yang menyediakan solusi digital untuk sekolah, organisasi, UKM, pemerintahan, dan berbagai kebutuhan bisnis lainnya.</p>
-                <a href="#portfolio" class="cta-button">Lihat Portofolio Kami</a>
+                <a href="#products" class="cta-button">Lihat Produk & Layanan</a>
             </div>
             <div class="hero-image">
                 <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="ZRS Digital Development">
@@ -573,12 +1075,26 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services">
+    <!-- Products Section -->
+    <section id="products">
         <div class="container">
             <div class="section-title">
-                <h2>Layanan Kami</h2>
-                <p>Kami menyediakan berbagai layanan pengembangan aplikasi dan website sesuai kebutuhan Anda</p>
+                <h2>Produk & Layanan Kami</h2>
+                <p>Pilih dan pesan produk/layanan digital yang sesuai dengan kebutuhan Anda</p>
+            </div>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- Product items will be added dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" style="background-color: #f5f7fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Jasa Pembuatan Custom</h2>
+                <p>Kami juga menerima pembuatan aplikasi dan website custom sesuai kebutuhan spesifik Anda</p>
             </div>
             
             <div class="services-grid">
@@ -645,121 +1161,6 @@
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" style="background-color: #f5f7fa;">
-        <div class="container">
-            <div class="section-title">
-                <h2>Portofolio Kami</h2>
-                <p>Beberapa proyek yang telah kami kerjakan untuk berbagai klien</p>
-            </div>
-            
-            <div class="portfolio-filter">
-                <button class="filter-btn active" data-filter="all">Semua</button>
-                <button class="filter-btn" data-filter="website">Website</button>
-                <button class="filter-btn" data-filter="app">Aplikasi</button>
-                <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
-            </div>
-            
-            <div class="portfolio-grid">
-                <!-- Website Sekolah -->
-                <div class="portfolio-item" data-category="website">
-                    <div class="portfolio-img">
-                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Website Sekolah">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Website Sekolah ABC</h3>
-                        <p>Portal informasi sekolah dengan sistem akademik terintegrasi untuk guru, siswa, dan orang tua.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">PHP</span>
-                            <span class="tag">MySQL</span>
-                            <span class="tag">Bootstrap</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Aplikasi Kasir -->
-                <div class="portfolio-item" data-category="app">
-                    <div class="portfolio-img">
-                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Aplikasi Kasir">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Aplikasi Kasir Toko XYZ</h3>
-                        <p>Sistem POS dengan inventori, laporan penjualan, dan manajemen stok untuk toko retail.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Laravel</span>
-                            <span class="tag">Vue.js</span>
-                            <span class="tag">MySQL</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Website Pemerintahan -->
-                <div class="portfolio-item" data-category="website">
-                    <div class="portfolio-img">
-                        <img src="https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Website Pemerintahan">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Website Desa Digital</h3>
-                        <p>Website informasi desa dengan layanan administrasi online dan pengaduan masyarakat.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">WordPress</span>
-                            <span class="tag">PHP</span>
-                            <span class="tag">JavaScript</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Aplikasi Apotek -->
-                <div class="portfolio-item" data-category="app">
-                    <div class="portfolio-img">
-                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Aplikasi Apotek">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Aplikasi Apotek Sehat</h3>
-                        <p>Sistem manajemen apotek dengan stok obat, resep dokter, dan penjualan.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">CodeIgniter</span>
-                            <span class="tag">jQuery</span>
-                            <span class="tag">MySQL</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Website UKM -->
-                <div class="portfolio-item" data-category="ecommerce">
-                    <div class="portfolio-img">
-                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Website UKM">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Toko Online UKM Maju</h3>
-                        <p>Website e-commerce untuk produk kerajinan UKM dengan sistem pembayaran online.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Shopify</span>
-                            <span class="tag">HTML/CSS</span>
-                            <span class="tag">JavaScript</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Website Berita -->
-                <div class="portfolio-item" data-category="website">
-                    <div class="portfolio-img">
-                        <img src="https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Website Berita">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Portal Berita Daerah</h3>
-                        <p>Website berita lokal dengan sistem manajemen konten dan kategori berita.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">WordPress</span>
-                            <span class="tag">PHP</span>
-                            <span class="tag">MySQL</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- GitHub Section -->
     <section class="github-section" id="github">
         <div class="container">
@@ -783,14 +1184,9 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
+    <!-- Footer -->
+    <footer id="contact">
         <div class="container">
-            <div class="section-title">
-                <h2>Hubungi Kami</h2>
-                <p>Butuh aplikasi atau website untuk bisnis atau institusi Anda? Hubungi tim kami</p>
-            </div>
-            
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>CV. ZRS Digital</h3>
@@ -801,56 +1197,20 @@
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Layanan Utama</h3>
+                    <h3>Produk & Layanan</h3>
+                    <a href="#products">Paket Website Sekolah</a>
+                    <a href="#products">Aplikasi Kasir Toko</a>
+                    <a href="#products">Sistem Manajemen Apotek</a>
+                    <a href="#products">Website Pemerintahan</a>
+                    <a href="#products">Website Berita</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Jasa Custom</h3>
                     <a href="#services">Aplikasi Berbasis Web</a>
-                    <a href="#services">Website Sekolah</a>
-                    <a href="#services">Aplikasi Kasir</a>
-                    <a href="#services">Aplikasi Apotek</a>
-                    <a href="#services">Website Pemerintahan</a>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Proyek Terkini</h3>
-                    <a href="#portfolio">Website Sekolah ABC</a>
-                    <a href="#portfolio">Aplikasi Kasir Toko XYZ</a>
-                    <a href="#portfolio">Website Desa Digital</a>
-                    <a href="#portfolio">Aplikasi Apotek Sehat</a>
-                    <a href="#portfolio">Toko Online UKM</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>CV. ZRS Digital</h3>
-                    <p>Solusi digital untuk kemajuan bisnis dan institusi Anda.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Links Cepat</h3>
-                    <a href="#home">Beranda</a>
-                    <a href="#services">Layanan</a>
-                    <a href="#portfolio">Portofolio</a>
-                    <a href="#github">GitHub</a>
-                    <a href="#contact">Kontak</a>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Layanan Lainnya</h3>
                     <a href="#services">Website Organisasi</a>
                     <a href="#services">Website UKM</a>
                     <a href="#services">Website Masjid</a>
-                    <a href="#services">Website Berita</a>
                     <a href="#services">Dan Lain-lain</a>
                 </div>
             </div>
@@ -861,85 +1221,640 @@
         </div>
     </footer>
 
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3><i class="fas fa-shopping-cart"></i> Keranjang Belanja</h3>
+                <button class="close-cart" id="closeCart">&times;</button>
+            </div>
+            <div class="cart-body" id="cartBody">
+                <!-- Cart items will be added dynamically -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span class="cart-total-amount" id="cartTotal">Rp 0</span>
+                </div>
+                <div class="cart-actions">
+                    <button class="btn-continue" id="continueShopping">Lanjut Belanja</button>
+                    <button class="btn-checkout" id="checkoutButton">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="checkout-content">
+            <div class="checkout-header">
+                <h3><i class="fas fa-credit-card"></i> Checkout Pesanan</h3>
+                <button class="close-checkout" id="closeCheckout">&times;</button>
+            </div>
+            <div class="checkout-body">
+                <div class="checkout-summary">
+                    <h4>Ringkasan Pesanan</h4>
+                    <div id="checkoutSummary">
+                        <!-- Order summary will be added dynamically -->
+                    </div>
+                    <div class="checkout-total">
+                        <span>Total Pembayaran:</span>
+                        <span id="checkoutTotal">Rp 0</span>
+                    </div>
+                </div>
+                
+                <div class="checkout-form">
+                    <h4>Informasi Pemesan</h4>
+                    <div class="form-group">
+                        <label for="customerName">Nama Lengkap *</label>
+                        <input type="text" id="customerName" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="customerEmail">Email *</label>
+                            <input type="email" id="customerEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customerPhone">No. Telepon/WhatsApp *</label>
+                            <input type="tel" id="customerPhone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerCompany">Perusahaan/Institusi (Opsional)</label>
+                        <input type="text" id="customerCompany">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerAddress">Alamat Lengkap</label>
+                        <textarea id="customerAddress" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerNotes">Catatan Tambahan (Opsional)</label>
+                        <textarea id="customerNotes" placeholder="Detail tambahan tentang proyek, fitur khusus yang diinginkan, dll."></textarea>
+                    </div>
+                    
+                    <h4>Metode Pembayaran</h4>
+                    <div class="payment-methods">
+                        <label class="payment-method">
+                            <input type="radio" name="payment" value="transfer" checked>
+                            <i class="fas fa-university"></i>
+                            <span>Transfer Bank</span>
+                        </label>
+                        <label class="payment-method">
+                            <input type="radio" name="payment" value="cod">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>Cash on Delivery (COD)</span>
+                        </label>
+                        <label class="payment-method">
+                            <input type="radio" name="payment" value="virtual">
+                            <i class="fas fa-qrcode"></i>
+                            <span>E-Wallet / QRIS</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="checkout-footer">
+                <button class="btn-confirm" id="confirmOrder">Konfirmasi Pesanan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="success-modal" id="successModal">
+        <div class="success-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Pesanan Berhasil!</h3>
+            <p>Terima kasih telah memesan produk/layanan dari CV. ZRS Digital. Tim kami akan menghubungi Anda dalam waktu 1x24 jam untuk konfirmasi dan proses selanjutnya.</p>
+            <p>Invoice dan detail pembayaran akan dikirimkan melalui email yang Anda berikan.</p>
+            <button class="btn-success" id="closeSuccess">Tutup</button>
+        </div>
+    </div>
+
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenu');
+        // Data Produk
+        const products = [
+            {
+                id: 1,
+                name: "Website Sekolah Premium",
+                description: "Website informasi dan akademik lengkap untuk sekolah dengan fitur: profil sekolah, berita, galeri, jadwal pelajaran, pengumuman, dan sistem login untuk guru/siswa.",
+                image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                price: 7500000,
+                originalPrice: 9000000,
+                tags: ["Website", "Sekolah", "PHP", "MySQL"],
+                category: "website"
+            },
+            {
+                id: 2,
+                name: "Aplikasi Kasir Toko Retail",
+                description: "Sistem kasir dan POS untuk toko retail dengan fitur: transaksi penjualan, manajemen stok, laporan penjualan, pelanggan, dan ekspor data ke Excel.",
+                image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                price: 5000000,
+                originalPrice: 6500000,
+                tags: ["Aplikasi", "Kasir", "Laravel", "Vue.js"],
+                category: "app"
+            },
+            {
+                id: 3,
+                name: "Website Pemerintahan Desa",
+                description: "Website resmi pemerintahan desa dengan fitur: profil desa, berita, pengumuman, layanan publik, galeri, dan sistem pengaduan masyarakat online.",
+                image: "https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                price: 6000000,
+                originalPrice: 7500000,
+                tags: ["Website", "Pemerintah", "WordPress", "PHP"],
+                category: "website"
+            },
+            {
+                id: 4,
+                name: "Aplikasi Manajemen Apotek",
+                description: "Sistem manajemen apotek dengan fitur: data obat, stok, resep dokter, penjualan, pembelian, laporan keuangan, dan kadaluarsa obat.",
+                image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                price: 8500000,
+                originalPrice: 10000000,
+                tags: ["Aplikasi", "Apotek", "CodeIgniter", "MySQL"],
+                category: "app"
+            },
+            {
+                id: 5,
+                name: "Toko Online UKM",
+                description: "Website e-commerce untuk UKM dengan fitur: katalog produk, keranjang belanja, checkout, pembayaran online, manajemen pesanan, dan dashboard admin.",
+                image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                price: 4500000,
+                originalPrice: 6000000,
+                tags: ["E-commerce", "UKM", "Shopify", "JavaScript"],
+                category: "ecommerce"
+            },
+            {
+                id: 6,
+                name: "Portal Berita Online",
+                description: "Website portal berita dengan sistem manajemen konten, kategori berita, penulis, editor, komentar pembaca, dan newsletter.",
+                image: "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                price: 5500000,
+                originalPrice: 7000000,
+                tags: ["Website", "Berita", "WordPress", "PHP"],
+                category: "website"
+            },
+            {
+                id: 7,
+                name: "Website Organisasi/NGO",
+                description: "Website untuk organisasi atau NGO dengan fitur: profil, program kegiatan, anggota, donasi online, galeri, dan blog berita.",
+                image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                price: 4000000,
+                originalPrice: 5500000,
+                tags: ["Website", "Organisasi", "HTML/CSS", "JavaScript"],
+                category: "website"
+            },
+            {
+                id: 8,
+                name: "Website Masjid Digital",
+                description: "Website untuk masjid dengan fitur: jadwal sholat, pengumuman, kalender kegiatan, donasi online, kajian, dan live streaming.",
+                image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                price: 3500000,
+                originalPrice: 5000000,
+                tags: ["Website", "Masjid", "PHP", "MySQL"],
+                category: "website"
+            }
+        ];
+
+        // Data Cart
+        let cart = JSON.parse(localStorage.getItem('zrs_cart')) || [];
+        
+        // DOM Elements
+        const productsGrid = document.getElementById('productsGrid');
+        const cartButton = document.getElementById('cartButton');
+        const cartCount = document.getElementById('cartCount');
+        const cartModal = document.getElementById('cartModal');
+        const closeCart = document.getElementById('closeCart');
+        const cartBody = document.getElementById('cartBody');
+        const cartTotal = document.getElementById('cartTotal');
+        const continueShopping = document.getElementById('continueShopping');
+        const checkoutButton = document.getElementById('checkoutButton');
+        const checkoutModal = document.getElementById('checkoutModal');
+        const closeCheckout = document.getElementById('closeCheckout');
+        const checkoutSummary = document.getElementById('checkoutSummary');
+        const checkoutTotal = document.getElementById('checkoutTotal');
+        const confirmOrder = document.getElementById('confirmOrder');
+        const successModal = document.getElementById('successModal');
+        const closeSuccess = document.getElementById('closeSuccess');
+        const mobileMenu = document.getElementById('mobileMenu');
         const navMenu = document.getElementById('navMenu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
-        
-        // Portfolio Filter
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-        
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                button.classList.add('active');
-                
-                const filterValue = button.getAttribute('data-filter');
-                
-                portfolioItems.forEach(item => {
-                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProducts();
+            updateCartCount();
+            
+            // Mobile menu toggle
+            mobileMenu.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                mobileMenu.innerHTML = navMenu.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Cart button click
+            cartButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                openCartModal();
+            });
+            
+            // Close cart modal
+            closeCart.addEventListener('click', closeCartModal);
+            continueShopping.addEventListener('click', closeCartModal);
+            
+            // Checkout button click
+            checkoutButton.addEventListener('click', openCheckoutModal);
+            
+            // Close checkout modal
+            closeCheckout.addEventListener('click', closeCheckoutModal);
+            
+            // Confirm order button
+            confirmOrder.addEventListener('click', confirmOrderHandler);
+            
+            // Close success modal
+            closeSuccess.addEventListener('click', closeSuccessModal);
+            
+            // Close modals when clicking outside
+            window.addEventListener('click', (e) => {
+                if (e.target === cartModal) closeCartModal();
+                if (e.target === checkoutModal) closeCheckoutModal();
+                if (e.target === successModal) closeSuccessModal();
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        navMenu.classList.remove('active');
+                        mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+                        
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
                     }
                 });
             });
         });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
+
+        // Render products to the page
+        function renderProducts() {
+            productsGrid.innerHTML = '';
+            
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.setAttribute('data-category', product.category);
                 
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
+                // Format price
+                const formattedPrice = formatCurrency(product.price);
+                const formattedOriginalPrice = formatCurrency(product.originalPrice);
                 
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    // Close mobile menu if open
-                    navMenu.classList.remove('active');
-                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
+                // Create tags HTML
+                const tagsHTML = product.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+                
+                productCard.innerHTML = `
+                    <div class="product-img">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <p>${product.description}</p>
+                        <div class="product-tags">
+                            ${tagsHTML}
+                        </div>
+                        <div class="product-price">
+                            ${formattedPrice}
+                            ${product.originalPrice ? `<span>${formattedOriginalPrice}</span>` : ''}
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-detail" onclick="showProductDetail(${product.id})">
+                                <i class="fas fa-info-circle"></i> Detail
+                            </button>
+                            <button class="btn-buy" onclick="addToCart(${product.id})">
+                                <i class="fas fa-cart-plus"></i> Pesan
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                productsGrid.appendChild(productCard);
             });
-        });
-        
-        // Add active class to nav links on scroll
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('nav ul li a');
+        }
+
+        // Add product to cart
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
             
-            let current = '';
+            // Check if product already in cart
+            const existingItemIndex = cart.findIndex(item => item.id === productId);
             
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 100)) {
-                    current = section.getAttribute('id');
-                }
+            if (existingItemIndex !== -1) {
+                // Increase quantity
+                cart[existingItemIndex].quantity += 1;
+            } else {
+                // Add new item to cart
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    quantity: 1
+                });
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('zrs_cart', JSON.stringify(cart));
+            
+            // Update cart count
+            updateCartCount();
+            
+            // Show confirmation
+            showNotification(`"${product.name}" telah ditambahkan ke keranjang`);
+            
+            // Open cart modal
+            openCartModal();
+        }
+
+        // Remove item from cart
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            localStorage.setItem('zrs_cart', JSON.stringify(cart));
+            updateCartCount();
+            renderCart();
+            
+            if (cart.length === 0) {
+                closeCartModal();
+            }
+        }
+
+        // Update item quantity in cart
+        function updateQuantity(productId, newQuantity) {
+            if (newQuantity < 1) {
+                removeFromCart(productId);
+                return;
+            }
+            
+            const itemIndex = cart.findIndex(item => item.id === productId);
+            if (itemIndex !== -1) {
+                cart[itemIndex].quantity = newQuantity;
+                localStorage.setItem('zrs_cart', JSON.stringify(cart));
+                updateCartCount();
+                renderCart();
+            }
+        }
+
+        // Render cart items
+        function renderCart() {
+            cartBody.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartBody.innerHTML = `
+                    <div class="cart-empty">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h4>Keranjang Belanja Kosong</h4>
+                        <p>Silakan pilih produk/layanan yang Anda butuhkan</p>
+                    </div>
+                `;
+                cartTotal.textContent = 'Rp 0';
+                return;
+            }
+            
+            let total = 0;
+            const cartItemsContainer = document.createElement('div');
+            cartItemsContainer.className = 'cart-items';
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <div class="cart-item-img">
+                        <img src="${item.image}" alt="${item.name}">
+                    </div>
+                    <div class="cart-item-details">
+                        <h4>${item.name}</h4>
+                        <div class="cart-item-price">${formatCurrency(item.price)}</div>
+                        <div class="cart-item-quantity">
+                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, ${item.quantity - 1})">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <span class="quantity">${item.quantity}</span>
+                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, ${item.quantity + 1})">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button class="cart-item-remove" onclick="removeFromCart(${item.id})">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+                
+                cartItemsContainer.appendChild(cartItem);
             });
             
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
+            cartBody.appendChild(cartItemsContainer);
+            cartTotal.textContent = formatCurrency(total);
+        }
+
+        // Open cart modal
+        function openCartModal() {
+            renderCart();
+            cartModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close cart modal
+        function closeCartModal() {
+            cartModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Open checkout modal
+        function openCheckoutModal() {
+            if (cart.length === 0) {
+                showNotification('Keranjang belanja kosong. Silakan tambah produk terlebih dahulu.');
+                return;
+            }
+            
+            closeCartModal();
+            
+            // Render checkout summary
+            let summaryHTML = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                summaryHTML += `
+                    <div class="checkout-item">
+                        <span>${item.name} (${item.quantity}x)</span>
+                        <span>${formatCurrency(itemTotal)}</span>
+                    </div>
+                `;
             });
-        });
+            
+            checkoutSummary.innerHTML = summaryHTML;
+            checkoutTotal.textContent = formatCurrency(total);
+            
+            // Reset form
+            document.getElementById('customerName').value = '';
+            document.getElementById('customerEmail').value = '';
+            document.getElementById('customerPhone').value = '';
+            document.getElementById('customerCompany').value = '';
+            document.getElementById('customerAddress').value = '';
+            document.getElementById('customerNotes').value = '';
+            
+            checkoutModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close checkout modal
+        function closeCheckoutModal() {
+            checkoutModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Confirm order handler
+        function confirmOrderHandler() {
+            // Get form values
+            const name = document.getElementById('customerName').value.trim();
+            const email = document.getElementById('customerEmail').value.trim();
+            const phone = document.getElementById('customerPhone').value.trim();
+            const company = document.getElementById('customerCompany').value.trim();
+            const address = document.getElementById('customerAddress').value.trim();
+            const notes = document.getElementById('customerNotes').value.trim();
+            const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+            
+            // Validate form
+            if (!name || !email || !phone || !address) {
+                showNotification('Harap lengkapi semua field yang wajib diisi.');
+                return;
+            }
+            
+            // Create order object
+            const order = {
+                customer: { name, email, phone, company, address, notes, paymentMethod },
+                items: [...cart],
+                total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+                date: new Date().toISOString(),
+                orderId: 'ZRS-' + Date.now()
+            };
+            
+            // In a real application, you would send this order to a server
+            // For this demo, we'll just save it to localStorage and show success message
+            saveOrder(order);
+            
+            // Clear cart
+            cart = [];
+            localStorage.setItem('zrs_cart', JSON.stringify(cart));
+            updateCartCount();
+            
+            // Close checkout modal and show success modal
+            closeCheckoutModal();
+            successModal.style.display = 'flex';
+        }
+
+        // Close success modal
+        function closeSuccessModal() {
+            successModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Save order to localStorage (simulate saving to server)
+        function saveOrder(order) {
+            let orders = JSON.parse(localStorage.getItem('zrs_orders')) || [];
+            orders.push(order);
+            localStorage.setItem('zrs_orders', JSON.stringify(orders));
+            
+            // In a real application, you would send this to your backend server
+            console.log('Order saved:', order);
+        }
+
+        // Update cart count in header
+        function updateCartCount() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+
+        // Format currency to IDR
+        function formatCurrency(amount) {
+            return 'Rp ' + amount.toLocaleString('id-ID');
+        }
+
+        // Show notification
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background-color: var(--success);
+                color: white;
+                padding: 15px 20px;
+                border-radius: 5px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                z-index: 5000;
+                font-weight: 500;
+                max-width: 300px;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+            
+            // Add CSS for animations
+            if (!document.querySelector('#notification-styles')) {
+                const style = document.createElement('style');
+                style.id = 'notification-styles';
+                style.textContent = `
+                    @keyframes slideIn {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                    @keyframes slideOut {
+                        from { transform: translateX(0); opacity: 1; }
+                        to { transform: translateX(100%); opacity: 0; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+
+        // Show product detail (for demo, just an alert)
+        function showProductDetail(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                alert(`${product.name}\n\n${product.description}\n\nHarga: ${formatCurrency(product.price)}${product.originalPrice ? ` (Diskon dari ${formatCurrency(product.originalPrice)})` : ''}\n\nTekan "Pesan" untuk menambahkan ke keranjang.`);
+            }
+        }
+
+        // Expose functions to global scope for onclick attributes
+        window.addToCart = addToCart;
+        window.removeFromCart = removeFromCart;
+        window.updateQuantity = updateQuantity;
+        window.showProductDetail = showProductDetail;
     </script>
 </body>
 </html>
