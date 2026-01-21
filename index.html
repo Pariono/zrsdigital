@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV. ZRS Digital - Portofolio Aplikasi & Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+            --success: #27ae60;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            color: var(--secondary);
+            font-size: 1.8rem;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 0;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a2530 100%);
+            color: white;
+            padding: 8rem 0 5rem;
+            margin-top: 60px;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .hero-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--light);
+            max-width: 600px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 1rem auto 0;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            background-color: var(--secondary);
+            color: white;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+        
+        .service-content p {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+        
+        /* Portfolio Section */
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 2.5rem;
+        }
+        
+        .filter-btn {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .portfolio-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .portfolio-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .portfolio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .portfolio-item:hover .portfolio-img img {
+            transform: scale(1.05);
+        }
+        
+        .portfolio-info {
+            padding: 1.5rem;
+        }
+        
+        .portfolio-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .portfolio-info p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+        
+        .tag {
+            background-color: #e8f4fc;
+            color: var(--secondary);
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        
+        /* GitHub Section */
+        .github-section {
+            background-color: #f1f8ff;
+        }
+        
+        .github-box {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .github-box i {
+            font-size: 3.5rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+        
+        .github-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .github-box p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #333;
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .github-link:hover {
+            background-color: #555;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            color: var(--secondary);
+        }
+        
+        .footer-column p, .footer-column a {
+            color: #ccc;
+            margin-bottom: 0.8rem;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-text {
+                margin-bottom: 2rem;
+            }
+            
+            .hero-text h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 0.8rem 1rem;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .github-box {
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 6rem 0 3rem;
+            }
+            
+            .hero-text h2 {
+                font-size: 1.8rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                <h1>CV. <span>ZRS Digital</span></h1>
+            </div>
+            
+            <div class="mobile-menu" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#services">Layanan</a></li>
+                    <li><a href="#portfolio">Portofolio</a></li>
+                    <li><a href="#github">GitHub</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h2>Solusi Digital untuk Bisnis dan Institusi Anda</h2>
+                <p>CV. ZRS Digital adalah perusahaan pengembang aplikasi dan website profesional yang menyediakan solusi digital untuk sekolah, organisasi, UKM, pemerintahan, dan berbagai kebutuhan bisnis lainnya.</p>
+                <a href="#portfolio" class="cta-button">Lihat Portofolio Kami</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="ZRS Digital Development">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Layanan Kami</h2>
+                <p>Kami menyediakan berbagai layanan pengembangan aplikasi dan website sesuai kebutuhan Anda</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Aplikasi Berbasis Web</h3>
+                        <p>Pengembangan aplikasi web custom untuk berbagai keperluan bisnis dan organisasi dengan teknologi terkini.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Website Sekolah</h3>
+                        <p>Website informasi dan akademik untuk sekolah dengan fitur lengkap seperti jadwal, nilai, dan pengumuman.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cash-register"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Aplikasi Kasir & POS</h3>
+                        <p>Sistem point of sale untuk toko, restoran, dan retail dengan laporan penjualan dan inventori.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-prescription-bottle"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Aplikasi Apotek</h3>
+                        <p>Sistem manajemen apotek untuk pencatatan obat, resep, stok, dan penjualan.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Website Organisasi</h3>
+                        <p>Website untuk organisasi, yayasan, atau komunitas dengan fitur keanggotaan dan kegiatan.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Website Pemerintahan</h3>
+                        <p>Website resmi untuk instansi pemerintahan dengan fitur layanan publik dan informasi resmi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" style="background-color: #f5f7fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Portofolio Kami</h2>
+                <p>Beberapa proyek yang telah kami kerjakan untuk berbagai klien</p>
+            </div>
+            
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="website">Website</button>
+                <button class="filter-btn" data-filter="app">Aplikasi</button>
+                <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <!-- Website Sekolah -->
+                <div class="portfolio-item" data-category="website">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Website Sekolah">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Website Sekolah ABC</h3>
+                        <p>Portal informasi sekolah dengan sistem akademik terintegrasi untuk guru, siswa, dan orang tua.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Aplikasi Kasir -->
+                <div class="portfolio-item" data-category="app">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Aplikasi Kasir">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Aplikasi Kasir Toko XYZ</h3>
+                        <p>Sistem POS dengan inventori, laporan penjualan, dan manajemen stok untuk toko retail.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Laravel</span>
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Website Pemerintahan -->
+                <div class="portfolio-item" data-category="website">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Website Pemerintahan">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Website Desa Digital</h3>
+                        <p>Website informasi desa dengan layanan administrasi online dan pengaduan masyarakat.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">WordPress</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Aplikasi Apotek -->
+                <div class="portfolio-item" data-category="app">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Aplikasi Apotek">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Aplikasi Apotek Sehat</h3>
+                        <p>Sistem manajemen apotek dengan stok obat, resep dokter, dan penjualan.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">CodeIgniter</span>
+                            <span class="tag">jQuery</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Website UKM -->
+                <div class="portfolio-item" data-category="ecommerce">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Website UKM">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Toko Online UKM Maju</h3>
+                        <p>Website e-commerce untuk produk kerajinan UKM dengan sistem pembayaran online.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Shopify</span>
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Website Berita -->
+                <div class="portfolio-item" data-category="website">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Website Berita">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Portal Berita Daerah</h3>
+                        <p>Website berita lokal dengan sistem manajemen konten dan kategori berita.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">WordPress</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Section -->
+    <section class="github-section" id="github">
+        <div class="container">
+            <div class="section-title">
+                <h2>Akses Melalui GitHub</h2>
+                <p>Portofolio ini dapat diakses langsung melalui GitHub Pages tanpa perlu hosting eksternal</p>
+            </div>
+            
+            <div class="github-box">
+                <i class="fab fa-github"></i>
+                <h3>Portofolio GitHub Pages</h3>
+                <p>Website portofolio CV. ZRS Digital ini dihosting secara gratis di GitHub Pages. Anda dapat mengakses kode sumbernya dan melihat bagaimana kami membangun portofolio ini.</p>
+                <p>GitHub Pages memungkinkan kami menampilkan proyek-proyek kami secara online tanpa biaya hosting, sehingga mudah diakses oleh calon klien.</p>
+                <a href="https://github.com" target="_blank" class="github-link">
+                    <i class="fab fa-github"></i> Kunjungi Repository GitHub
+                </a>
+                <div style="margin-top: 1.5rem; font-size: 0.9rem; color: #777;">
+                    <p><strong>Instruksi:</strong> Fork repository ini ke akun GitHub Anda, kemudian aktifkan GitHub Pages di settings untuk meng-host portofolio Anda sendiri.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hubungi Kami</h2>
+                <p>Butuh aplikasi atau website untuk bisnis atau institusi Anda? Hubungi tim kami</p>
+            </div>
+            
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CV. ZRS Digital</h3>
+                    <p>Perusahaan pengembang aplikasi dan website profesional dengan pengalaman dalam berbagai proyek digital.</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Teknologi No. 123, Kota Digital</p>
+                    <p><i class="fas fa-phone"></i> (021) 1234-5678</p>
+                    <p><i class="fas fa-envelope"></i> info@zrsdigital.com</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Layanan Utama</h3>
+                    <a href="#services">Aplikasi Berbasis Web</a>
+                    <a href="#services">Website Sekolah</a>
+                    <a href="#services">Aplikasi Kasir</a>
+                    <a href="#services">Aplikasi Apotek</a>
+                    <a href="#services">Website Pemerintahan</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Proyek Terkini</h3>
+                    <a href="#portfolio">Website Sekolah ABC</a>
+                    <a href="#portfolio">Aplikasi Kasir Toko XYZ</a>
+                    <a href="#portfolio">Website Desa Digital</a>
+                    <a href="#portfolio">Aplikasi Apotek Sehat</a>
+                    <a href="#portfolio">Toko Online UKM</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CV. ZRS Digital</h3>
+                    <p>Solusi digital untuk kemajuan bisnis dan institusi Anda.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Links Cepat</h3>
+                    <a href="#home">Beranda</a>
+                    <a href="#services">Layanan</a>
+                    <a href="#portfolio">Portofolio</a>
+                    <a href="#github">GitHub</a>
+                    <a href="#contact">Kontak</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Layanan Lainnya</h3>
+                    <a href="#services">Website Organisasi</a>
+                    <a href="#services">Website UKM</a>
+                    <a href="#services">Website Masjid</a>
+                    <a href="#services">Website Berita</a>
+                    <a href="#services">Dan Lain-lain</a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 CV. ZRS Digital. All rights reserved. | Portofolio ini dihosting di GitHub Pages</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenu');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Portfolio Filter
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add active class to nav links on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
